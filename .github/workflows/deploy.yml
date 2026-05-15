@@ -35,17 +35,10 @@ jobs:
       - name: Sync docs from MaaNTE
         run: |
           cp MaaNTE-temp/docs/README.md docs/README.md || true
-          # Preserve site-specific README.md files before sync
-          mkdir -p /tmp/docs-backup
-          cp docs/zh_cn/README.md /tmp/docs-backup/ 2>/dev/null || true
-          cp docs/zh_cn/introduction/README.md /tmp/docs-backup/intro-readme.md 2>/dev/null || true
-          cp docs/zh_cn/develop/README.md /tmp/docs-backup/dev-readme.md 2>/dev/null || true
-          rsync -av --delete MaaNTE-temp/docs/zh_cn/ docs/zh_cn/ || true
-          # Restore site-specific README.md files
-          cp /tmp/docs-backup/README.md docs/zh_cn/README.md 2>/dev/null || true
-          mkdir -p docs/zh_cn/introduction docs/zh_cn/develop
-          cp /tmp/docs-backup/intro-readme.md docs/zh_cn/introduction/README.md 2>/dev/null || true
-          cp /tmp/docs-backup/dev-readme.md docs/zh_cn/develop/README.md 2>/dev/null || true
+          rsync -av --delete \
+            --exclude='/introduction/README.md' \
+            --exclude='/develop/README.md' \
+            MaaNTE-temp/docs/zh_cn/ docs/zh_cn/
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
