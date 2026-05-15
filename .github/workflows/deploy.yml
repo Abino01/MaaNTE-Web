@@ -35,7 +35,10 @@ jobs:
       - name: Sync docs from MaaNTE
         run: |
           cp MaaNTE-temp/docs/README.md docs/README.md || true
-          rsync -av --delete MaaNTE-temp/docs/zh_cn/ docs/zh_cn/ || true
+          rsync -av --delete \
+            --exclude='/introduction/README.md' \
+            --exclude='/develop/README.md' \
+            MaaNTE-temp/docs/zh_cn/ docs/zh_cn/
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
