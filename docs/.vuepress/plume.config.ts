@@ -4,6 +4,7 @@ import { genNavigationComponents } from './navigation/genNavigationComponents.ts
 const navigationComponents = genNavigationComponents()
 
 export default defineThemeConfig({
+  home: '/',
   logo: 'images/logo_32x32.png',
 
   appearance: true,
