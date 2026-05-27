@@ -1,10 +1,7 @@
 import { defineThemeConfig } from 'vuepress-theme-plume'
-import { genNavigationComponents } from './navigation/genNavigationComponents.ts'
-
-const navigationComponents = genNavigationComponents()
+import { genThemeLocales } from './navigation/genLocales.ts'
 
 export default defineThemeConfig({
-  home: '/',
   logo: 'images/logo_32x32.png',
 
   appearance: true,
@@ -18,5 +15,5 @@ export default defineThemeConfig({
 
   footer: false,
 
-  navbar: navigationComponents.navbar,
+  locales: genThemeLocales(),
 })

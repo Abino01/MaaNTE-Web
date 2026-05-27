@@ -1,26 +1,21 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
-import { genNavigationComponents } from './navigation/genNavigationComponents.ts'
-
-const navigationComponents = genNavigationComponents()
+import { genSiteLocales } from './navigation/genLocales.ts'
+import breadcrumbFix from './plugins/breadcrumb-fix.ts'
 
 export default defineUserConfig({
-  base: '/MaaNTE-Web/',
+  plugins: [breadcrumbFix],
+  base: '/',
   lang: 'zh-CN',
   title: 'MaaNTE 文档站',
-  description: 'MaaNTE | MAA 异环小助手',
+  description: 'MaaNTE | MAA 异环小助手 — 由 MaaFramework 强力驱动的《异环》自动化辅助工具',
 
-  locales: {
-    '/zh_cn/': {
-      lang: 'zh-CN',
-      title: 'MaaNTE 文档站',
-      description: 'MaaNTE | MAA 异环小助手',
-    },
-  },
+  locales: genSiteLocales(),
 
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: 'images/logo_32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/images/logo_32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '256x256', href: '/images/logo_256x256.png' }],
   ],
 
   bundler: viteBundler(),
@@ -43,15 +38,8 @@ export default defineUserConfig({
       title: false,
     },
 
-    locales: {
-      '/zh_cn/': {
-        navbar: navigationComponents.navbar,
-        collections: navigationComponents.collections,
-      },
-    },
+    footer: false,
 
     watermark: false,
-
-    footer: false,
   }),
 })

@@ -61,41 +61,57 @@ fi
 echo ""
 echo -e "${YELLOW}Start syncing docs...${NC}"
 
-mkdir -p "$DOCS_DIR/zh_cn"
+sync_locale_docs() {
+    local source_dir="$1"
+    local target_dir="$2"
+    local label="$3"
 
+    if [ ! -d "$source_dir" ]; then
+        echo -e "    ${YELLOW}Source directory not found: $source_dir (skipping $label)${NC}"
+        return
+    fi
+
+    echo -e "  -> Sync $label ($source_dir -> $target_dir)"
+
+    # Preserve site-specific README.md files
+    local preserved=()
+    while IFS= read -r -d '' f; do
+        if [ -f "$f" ] && [[ "$(basename "$f")" == "README.md" ]]; then
+            cp "$f" "$f.bak"
+            preserved+=("$f")
+        fi
+    done < <(find "$target_dir" -name "README.md" -print0 2>/dev/null || true)
+
+    mkdir -p "$(dirname "$target_dir")"
+    rm -rf "$target_dir"
+    cp -r "$source_dir" "$target_dir"
+
+    # Restore preserved site-specific README.md files
+    for f in "${preserved[@]}"; do
+        if [ -f "$f.bak" ]; then
+            mv "$f.bak" "$f"
+        fi
+    done
+
+    echo -e "    ${GREEN}Done${NC}"
+}
+
+# zh-CN
+sync_locale_docs "$TEMP_DIR/docs/zh_cn/" "$DOCS_DIR/zh_cn/" "zh_cn"
+
+# English (upstream uses "eng", site uses "en_us")
+sync_locale_docs "$TEMP_DIR/docs/eng/" "$DOCS_DIR/en_us/" "en_us"
+
+# Japanese (upstream uses "jp", site uses "ja_jp")
+sync_locale_docs "$TEMP_DIR/docs/jp/" "$DOCS_DIR/ja_jp/" "ja_jp"
+
+# Sync top-level README as home page if it exists
 SOURCE_README="$TEMP_DIR/docs/README.md"
 TARGET_README="$DOCS_DIR/README.md"
-
 if [ -f "$SOURCE_README" ]; then
-    echo -e "  -> Sync docs/README.md"
+    echo -e "  -> Sync homepage (docs/README.md)"
     cp "$SOURCE_README" "$TARGET_README"
     echo -e "    ${GREEN}Done${NC}"
-else
-    echo -e "    ${YELLOW}Source file not found: $SOURCE_README${NC}"
-fi
-
-SOURCE_ZH_CN="$TEMP_DIR/docs/zh_cn/"
-TARGET_ZH_CN="$DOCS_DIR/zh_cn/"
-
-if [ -d "$SOURCE_ZH_CN" ]; then
-    echo -e "  -> Sync docs/zh_cn/"
-    # Preserve site-specific README.md files
-    for f in "$TARGET_ZH_CN"README.md "$TARGET_ZH_CN"introduction/README.md "$TARGET_ZH_CN"develop/README.md; do
-        if [ -f "$f" ]; then
-            cp "$f" "$f.bak"
-        fi
-    done
-    rm -rf "$TARGET_ZH_CN"
-    cp -r "$SOURCE_ZH_CN" "$TARGET_ZH_CN"
-    # Restore site-specific README.md files
-    for f in "$TARGET_ZH_CN"README.md.bak "$TARGET_ZH_CN"introduction/README.md.bak "$TARGET_ZH_CN"develop/README.md.bak; do
-        if [ -f "$f" ]; then
-            mv "$f" "${f%.bak}"
-        fi
-    done
-    echo -e "    ${GREEN}Done${NC}"
-else
-    echo -e "    ${YELLOW}Source directory not found: $SOURCE_ZH_CN${NC}"
 fi
 
 echo ""

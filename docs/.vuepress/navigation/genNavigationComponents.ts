@@ -3,6 +3,8 @@ import * as path from 'path'
 import { default as matter } from 'gray-matter'
 import { ThemeCollectionItem, ThemeNavItem, ThemeSidebarItem } from 'vuepress-theme-plume'
 
+import { Locale } from './i18n.ts'
+
 interface MetaData {
   baseName: string
   order: number
@@ -34,8 +36,6 @@ function getMetaData(dir: string, entry: fs.Dirent): MetaData | null {
   }
 
   if (!fs.existsSync(mdFilePath)) {
-    // For files without a corresponding README.md in a directory,
-    // still try to read the file itself
     if (entry.isDirectory()) {
       return null
     }
@@ -65,6 +65,8 @@ function getSidebarItems(dir: string): SidebarItem[] {
     sidebarItem: SidebarItem
     order: number
   }
+
+  if (!fs.existsSync(dir)) return []
 
   const entries = fs.readdirSync(dir, { withFileTypes: true }).filter((e) => !e.name.startsWith('.'))
 
@@ -98,7 +100,8 @@ function getSidebarItems(dir: string): SidebarItem[] {
 }
 
 export function genNavigationComponents(
-  baseDir = path.resolve(__dirname, '../../zh_cn'),
+  locale: Locale,
+  baseDir = path.resolve(__dirname, '../../'),
 ): NavigationComponents {
   interface WrappedNavigationComponent {
     navItem: ThemeNavItem
@@ -108,17 +111,18 @@ export function genNavigationComponents(
 
   const navigationComponentsWithOrder: WrappedNavigationComponent[] = []
 
-  if (!fs.existsSync(baseDir)) {
+  const langDir = path.join(baseDir, locale.name)
+
+  if (!fs.existsSync(langDir)) {
     return { navbar: [], collections: [] }
   }
 
-  const locale = path.basename(baseDir)
-  const entries = fs.readdirSync(baseDir, { withFileTypes: true }).filter((e) => !e.name.startsWith('.'))
+  const entries = fs.readdirSync(langDir, { withFileTypes: true }).filter((e) => !e.name.startsWith('.'))
 
   for (const entry of entries) {
     if (!entry.isDirectory()) continue
 
-    const metaData = getMetaData(baseDir, entry)
+    const metaData = getMetaData(langDir, entry)
     if (!metaData) {
       continue
     }
@@ -126,7 +130,7 @@ export function genNavigationComponents(
     const navbarItem: ThemeNavItem = {
       text: metaData.title,
       icon: metaData.icon,
-      link: `/${locale}/${metaData.baseName}/`,
+      link: `/${locale.name}/${metaData.baseName}/`,
     }
 
     const collectionItem: ThemeCollectionItem = {
@@ -134,7 +138,7 @@ export function genNavigationComponents(
       title: metaData.title,
       dir: metaData.baseName,
       linkPrefix: `/${metaData.baseName}/`,
-      sidebar: getSidebarItems(path.join(baseDir, entry.name)),
+      sidebar: getSidebarItems(path.join(langDir, entry.name)),
     }
 
     navigationComponentsWithOrder.push({

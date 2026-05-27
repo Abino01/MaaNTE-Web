@@ -61,69 +61,80 @@ if (Test-Path $TempDir) {
 Write-Host ""
 Write-ColorOutput "Start syncing docs..." "Yellow"
 
-$TargetDirs = @(
-    (Join-Path $DocsDir "zh_cn")
-)
+function Sync-LocaleDocs {
+    param(
+        [string]$SourceDir,
+        [string]$TargetDir,
+        [string]$Label
+    )
 
-foreach ($dir in $TargetDirs) {
-    if (-not (Test-Path $dir)) {
-        New-Item -ItemType Directory -Path $dir -Force | Out-Null
+    if (-not (Test-Path $SourceDir)) {
+        Write-ColorOutput "Source directory not found: $SourceDir (skipping $Label)" "Yellow"
+        return
     }
-}
 
-$SourceReadme = Join-Path $TempDir "docs\README.md"
-$TargetReadme = Join-Path $DocsDir "README.md"
-
-if (Test-Path $SourceReadme) {
-    Write-ColorOutput "  -> Sync docs/README.md" "White"
-    Copy-Item -Path $SourceReadme -Destination $TargetReadme -Force
-    Write-ColorOutput "    Done" "Green"
-} else {
-    Write-ColorOutput "    Source file not found: $SourceReadme" "Yellow"
-}
-
-$SourceZhCn = Join-Path $TempDir "docs\zh_cn"
-$TargetZhCn = Join-Path $DocsDir "zh_cn"
-
-if (Test-Path $SourceZhCn) {
-    Write-ColorOutput "  -> Sync docs/zh_cn/" "White"
+    Write-ColorOutput "  -> Sync $Label" "White"
 
     # Preserve site-specific README.md files
-    $preserveFiles = @(
-        (Join-Path $TargetZhCn "README.md"),
-        (Join-Path $TargetZhCn "introduction\README.md"),
-        (Join-Path $TargetZhCn "develop\README.md")
-    )
-    $backupDir = Join-Path $TargetZhCn ".backup"
-    New-Item -ItemType Directory -Path $backupDir -Force | Out-Null
-    foreach ($f in $preserveFiles) {
-        if (Test-Path $f) {
-            Copy-Item -Path $f -Destination (Join-Path $backupDir (Split-Path $f -Leaf)) -Force
-        }
-    }
-
-    $result = robocopy $SourceZhCn $TargetZhCn /MIR /NFL /NDL /NJH /NJS /R:0 /W:0
-
-    # Restore site-specific README.md files
-    foreach ($f in $preserveFiles) {
-        $backupFile = Join-Path $backupDir (Split-Path $f -Leaf)
-        if (Test-Path $backupFile) {
-            $targetDir = Split-Path $f -Parent
-            if (-not (Test-Path $targetDir)) {
-                New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
-            }
-            Copy-Item -Path $backupFile -Destination $f -Force
-        }
-    }
-    Remove-Item -Path $backupDir -Recurse -Force -ErrorAction SilentlyContinue
-
-    if ($LASTEXITCODE -le 7) {
-        Write-ColorOutput "    Done" "Green"
+    $preservedFiles = if (Test-Path $TargetDir) {
+        Get-ChildItem -Path $TargetDir -Recurse -Filter "README.md" -File -ErrorAction SilentlyContinue
     } else {
-        Write-ColorOutput "    Warning during sync (exit code: $LASTEXITCODE)" "Yellow"
+        @()
     }
-} else {
-    Write-ColorOutput "    Source directory not found: $SourceZhCn" "Yellow"
+
+    $backupDir = Join-Path $DocsDir ".backup_$Label"
+    New-Item -ItemType Directory -Path $backupDir -Force | Out-Null
+    foreach ($f in $preservedFiles) {
+        $relativePath = $f.FullName.Substring($TargetDir.Length).TrimStart('\', '/')
+        $backupPath = Join-Path $backupDir $relativePath
+        $backupParent = Split-Path $backupPath -Parent
+        if (-not (Test-Path $backupParent)) {
+            New-Item -ItemType Directory -Path $backupParent -Force | Out-Null
+        }
+        Copy-Item -Path $f.FullName -Destination $backupPath -Force
+    }
+
+    # Remove and re-copy
+    if (Test-Path $TargetDir) {
+        Remove-Item -Path $TargetDir -Recurse -Force
+    }
+    New-Item -ItemType Directory -Path (Split-Path $TargetDir -Parent) -Force | Out-Null
+    Copy-Item -Path $SourceDir -Destination $TargetDir -Recurse -Force
+
+    # Restore preserved README.md files
+    if (Test-Path $backupDir) {
+        $backupFiles = Get-ChildItem -Path $backupDir -Recurse -Filter "README.md" -File -ErrorAction SilentlyContinue
+        foreach ($bf in $backupFiles) {
+            $relativePath = $bf.FullName.Substring($backupDir.Length).TrimStart('\', '/')
+            $restorePath = Join-Path $TargetDir $relativePath
+            $restoreParent = Split-Path $restorePath -Parent
+            if (-not (Test-Path $restoreParent)) {
+                New-Item -ItemType Directory -Path $restoreParent -Force | Out-Null
+            }
+            Copy-Item -Path $bf.FullName -Destination $restorePath -Force
+        }
+        Remove-Item -Path $backupDir -Recurse -Force -ErrorAction SilentlyContinue
+    }
+
+    Write-ColorOutput "    Done" "Green"
+}
+
+# zh-CN
+Sync-LocaleDocs -SourceDir (Join-Path $TempDir "docs\zh_cn") -TargetDir (Join-Path $DocsDir "zh_cn") -Label "zh_cn"
+
+# English (upstream uses "eng", site uses "en_us")
+Sync-LocaleDocs -SourceDir (Join-Path $TempDir "docs\eng") -TargetDir (Join-Path $DocsDir "en_us") -Label "en_us"
+
+# Japanese (upstream uses "jp", site uses "ja_jp")
+Sync-LocaleDocs -SourceDir (Join-Path $TempDir "docs\jp") -TargetDir (Join-Path $DocsDir "ja_jp") -Label "ja_jp"
+
+# Sync top-level README as home page if it exists
+$SourceReadme = Join-Path $TempDir "docs\README.md"
+$TargetReadme = Join-Path $DocsDir "README.md"
+if (Test-Path $SourceReadme) {
+    Write-ColorOutput "  -> Sync homepage (docs/README.md)" "White"
+    Copy-Item -Path $SourceReadme -Destination $TargetReadme -Force
+    Write-ColorOutput "    Done" "Green"
 }
 
 Write-Host ""
