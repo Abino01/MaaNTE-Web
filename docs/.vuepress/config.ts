@@ -6,7 +6,7 @@ import breadcrumbFix from './plugins/breadcrumb-fix.ts'
 
 export default defineUserConfig({
   plugins: [breadcrumbFix],
-  base: '/',
+  base: '/MaaNTE-Web/',
   lang: 'zh-CN',
   title: 'MaaNTE 文档站',
   description: 'MaaNTE | MAA 异环小助手 — 由 MaaFramework 强力驱动的《异环》自动化辅助工具',
@@ -14,8 +14,8 @@ export default defineUserConfig({
   locales: genSiteLocales(),
 
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/images/logo_32x32.png' }],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '256x256', href: '/images/logo_256x256.png' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/MaaNTE-Web/images/logo_32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '256x256', href: '/MaaNTE-Web/images/logo_256x256.png' }],
   ],
 
   bundler: viteBundler(),
