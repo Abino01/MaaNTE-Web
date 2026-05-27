@@ -1,4 +1,4 @@
-const SITE_HOSTNAME = 'https://maa-nte.github.io'
+const SITE_BASE_URL = 'https://maa-nte.github.io/MaaNTE-Web'
 
 export default () => ({
   name: 'breadcrumb-seo-fix',
@@ -25,7 +25,7 @@ function generateBreadcrumbStructuredData(page: any) {
       '@type': 'ListItem',
       position: 1,
       name: 'Home',
-      item: { '@id': `${SITE_HOSTNAME}/` },
+      item: { '@id': `${SITE_BASE_URL}/` },
     },
   ]
 
@@ -42,7 +42,7 @@ function generateBreadcrumbStructuredData(page: any) {
       '@type': 'ListItem',
       position,
       name,
-      item: { '@id': `${SITE_HOSTNAME}${currentPath}/` },
+      item: { '@id': `${SITE_BASE_URL}${currentPath}/` },
     })
   })
 
