@@ -45,12 +45,21 @@ config:
         #   href: ""
         #   text: 警钟长鸣 →
         #   alt: 警钟长鸣
+        # 用于展示没有做校验导致的误触，用于警示开发者，现在先留空
       - title: 开源工具，代码安全
         content: MaaNTE 以 <strong>AGPL-3.0</strong> 开源，源码均在 GitHub 发布。<br>区别于闭源项目的不确定性，我们的每一行代码都经过审查，接受任何人随时监督。
         align: right
+        link:
+          href: "https://github.com/1bananachicken/MaaNTE/"
+          text: 我要验码 →
+          alt: 查看源代码
       - title: 社区驱动，功能丰富
         content: <strong>任何人</strong>均能提交代码，为 MaaNTE 添加新的功能。<br>我们拥有数十项已经添加到正式版的功能，覆盖日常任务、都市闲趣等多个方面。
         align: left
+        link:
+          href: "/zh_cn/introduction/"
+          text: 让我看看 →
+          alt: 查看功能介绍
   - type: features
     features:
       - title: 自动钓鱼
@@ -77,34 +86,23 @@ config:
       - title: 更多功能
         details: 自动弹琴、快速拾取、领取奖励、取钱……更多自动化功能持续更新中
         icon: heroicons:ellipsis-horizontal-circle-16-solid
+  - type: HomeIntro
+    items:
+      - title: 开源驱动，文档完善
+        content: MaaNTE 基于 <strong>MaaFramework</strong> 构建，采用 <strong>Pipeline 任务编排 + Python 自定义动作</strong> 的混合架构。<br/>通过 JSON 声明节点流程，支持模板匹配、OCR 文字识别、自定义识别等多种算法。<br/>开发者可以轻松扩展新功能、适配新分辨率。
+        align: center
+        link:
+          href: "/zh_cn/develop/"
+          text: 开发指南 →
+          alt: 开发指南
   - type: custom
 ---
-
-<section style="max-width: 1152px; margin: 0 auto; padding: 64px 24px; text-align: center;">
-  <p style="font-size: 14px; font-weight: 600; letter-spacing: 2px; color: var(--vp-c-brand); margin-bottom: 8px;">开源与技术</p>
-  <h2 style="font-size: 36px; font-weight: 700; margin: 0 0 16px;">开源驱动，文档完善</h2>
-  <p style="font-size: 16px; color: var(--vp-c-text-1); max-width: 720px; margin: 0 auto; line-height: 1.7;">
-    MaaNTE 基于 <strong>MaaFramework</strong> 构建，采用 <strong>Pipeline 任务编排 + Python 自定义动作</strong> 的混合架构。<br/>通过 JSON 声明节点流程，支持模板匹配、OCR 文字识别、自定义识别等多种算法。<br/>开发者可以轻松扩展新功能、适配新分辨率。
-  </p>
-  <p style="margin-top: 24px;">
-    <a href="/zh_cn/develop/" style="color: var(--vp-c-brand); font-weight: 500; text-decoration: none;">开发指南 →</a>
-  </p>
-</section>
-
-<div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin: 0; padding: 0 24px 48px;">
-  <a href="https://github.com/1bananachicken/MaaNTE" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 10px 24px; border: 1px solid var(--vp-c-border); border-radius: 8px; text-decoration: none; color: var(--vp-c-text-1); transition: border-color 0.2s, color 0.2s;">
-    <span class="vpi-social-github"></span>
-    <span>GitHub</span>
-  </a>
-  <a href="https://discord.gg/EjwrrGzy" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 10px 24px; border: 1px solid var(--vp-c-border); border-radius: 8px; text-decoration: none; color: var(--vp-c-text-1); transition: border-color 0.2s, color 0.2s;">
-    <span class="vpi-social-discord"></span>
-    <span>Discord</span>
-  </a>
-  <a href="https://space.bilibili.com/3546893080594665" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 10px 24px; border: 1px solid var(--vp-c-border); border-radius: 8px; text-decoration: none; color: var(--vp-c-text-1); transition: border-color 0.2s, color 0.2s;">
-    <span class="vpi-social-bilibili"></span>
-    <span>Bilibili</span>
-  </a>
-</div>
+<CardGrid>
+  <LinkCard icon="fa7-brands:github" title="GitHub" href="https://github.com/1bananachicken/MaaNTE/" />
+  <LinkCard icon="fa7-brands:bilibili" title="Bilibili" href="https://space.bilibili.com/3546893080594665/" />
+  <LinkCard icon="fa7-brands:qq" title="QQ" href="/zh_cn/qq-group/" />
+  <LinkCard icon="fa7-brands:discord" title="Discord" href="https://discord.gg/EjwrrGzy/" />
+</CardGrid>
 
 <div style="text-align: center; padding: 24px 0 48px; color: var(--vp-c-text-2); font-size: 14px;">
   MaaNTE 为开源项目，以 AGPL-3.0 协议发布。<br/>
