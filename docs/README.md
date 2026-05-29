@@ -24,6 +24,12 @@ config:
         - text: Mirror酱 下载
           link: https://mirrorchan.com/zh/projects?rid=MaaNTE
           type: secondary
+        - text: 百度网盘
+          link: https://pan.baidu.com/s/11QMC-aYfjfq52yco_UAwfg?pwd=tkmu
+          type: secondary
+        - text: 夸克网盘
+          link: https://pan.quark.cn/s/9eb393a6c95e?pwd=8nuf
+          type: secondary
         - text: 加入 QQ 群
           link: /zh_cn/qq-group/
           type: primary

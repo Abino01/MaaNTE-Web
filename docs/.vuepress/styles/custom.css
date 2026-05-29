@@ -15,11 +15,12 @@
   position: relative;
 }
 
-/* 子按钮：在下载按钮上方，横向排列 */
+/* 子按钮：在下载按钮上方，2x2 排列 */
 .vp-home-hero .action > .vp-button:nth-child(3),
-.vp-home-hero .action > .vp-button:nth-child(4) {
+.vp-home-hero .action > .vp-button:nth-child(4),
+.vp-home-hero .action > .vp-button:nth-child(5),
+.vp-home-hero .action > .vp-button:nth-child(6) {
   position: absolute;
-  bottom: calc(100% + 8px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -30,21 +31,31 @@
 
 .vp-home-hero .action > .vp-button:nth-child(3) {
   left: 50%;
+  bottom: calc(200% + 16px);
   transform: translateX(calc(-100% - 4px));
 }
 
 .vp-home-hero .action > .vp-button:nth-child(4) {
   left: 50%;
+  bottom: calc(200% + 16px);
   transform: translateX(4px);
 }
 
-/* 悬停下载按钮或任一子按钮时，两个子按钮同时出现 */
-.vp-home-hero .action:has(> .vp-button:nth-child(2):is(:hover, :focus-visible)) > .vp-button:nth-child(3),
-.vp-home-hero .action:has(> .vp-button:nth-child(2):is(:hover, :focus-visible)) > .vp-button:nth-child(4),
-.vp-home-hero .action:has(> .vp-button:nth-child(3):is(:hover, :focus-visible)) > .vp-button:nth-child(3),
-.vp-home-hero .action:has(> .vp-button:nth-child(3):is(:hover, :focus-visible)) > .vp-button:nth-child(4),
-.vp-home-hero .action:has(> .vp-button:nth-child(4):is(:hover, :focus-visible)) > .vp-button:nth-child(3),
-.vp-home-hero .action:has(> .vp-button:nth-child(4):is(:hover, :focus-visible)) > .vp-button:nth-child(4) {
+.vp-home-hero .action > .vp-button:nth-child(5) {
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(calc(-100% - 4px));
+}
+
+.vp-home-hero .action > .vp-button:nth-child(6) {
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(4px);
+}
+
+/* 悬停下载按钮或任一子按钮时，四个子按钮同时出现 */
+.vp-home-hero .action:has(> .vp-button:nth-child(2):is(:hover, :focus-visible)) > .vp-button:nth-child(n + 3):nth-child(-n + 6),
+.vp-home-hero .action:has(> .vp-button:nth-child(n + 3):nth-child(-n + 6):is(:hover, :focus-visible)) > .vp-button:nth-child(n + 3):nth-child(-n + 6) {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -56,29 +67,19 @@
  *
  * nth-child(2) 即 下载
  *
- * nth-child(3) 即 GitHub：
- *   ::before — 向右下延伸，填补子按钮间横向间隙
- *
- * nth-child(4) 即 Mirror酱：
- *   ::before — 向左下延伸
+ * nth-child(3) 到 nth-child(6) 为下载子按钮：
+ *   ::before — 扩大悬停区域，填补按钮间隙
  */
 
-/* GitHub：向下延伸 + 向右填隙 */
-.vp-home-hero .action > .vp-button:nth-child(3)::before {
+/* 下载子按钮：向下延伸并填补间隙 */
+.vp-home-hero .action > .vp-button:nth-child(3)::before,
+.vp-home-hero .action > .vp-button:nth-child(4)::before,
+.vp-home-hero .action > .vp-button:nth-child(5)::before,
+.vp-home-hero .action > .vp-button:nth-child(6)::before {
   content: '';
   position: absolute;
   top: 0px;
   left: 0;
-  width: 110%;
-  height: 150%;
-}
-
-/* Mirror酱：向左填隙 + 向下延伸 */
-.vp-home-hero .action > .vp-button:nth-child(4)::before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  right: 0;
   width: 110%;
   height: 150%;
 }
