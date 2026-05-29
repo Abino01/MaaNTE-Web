@@ -28,4 +28,4 @@ pnpm docs:build
 
 ## 文档来源
 
-文档内容同步自 [1bananachicken/MaaNTE](https://github.com/1bananachicken/MaaNTE) 仓库的 `docs/` 目录。
+文档内容同步自 [1bananachicken/MaaNTE](https://github.com/1bananachicken/MaaNTE) 仓库 `dev` 分支的 `docs/` 目录。

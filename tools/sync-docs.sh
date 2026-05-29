@@ -34,10 +34,13 @@ cd "$PROJECT_ROOT"
 
 TEMP_DIR="$PROJECT_ROOT/MaaNTE-temp"
 DOCS_DIR="$PROJECT_ROOT/docs"
+UPSTREAM_BRANCH="${MAANTE_UPSTREAM_DOCS_BRANCH:-dev}"
 
 echo -e "${CYAN}========================================${NC}"
 echo -e "${CYAN}MaaNTE Docs Sync Script${NC}"
 echo -e "${CYAN}========================================${NC}"
+echo ""
+echo -e "${GRAY}Upstream docs branch: ${UPSTREAM_BRANCH}${NC}"
 echo ""
 
 if ! command -v git &> /dev/null; then
@@ -48,13 +51,13 @@ fi
 if [ -d "$TEMP_DIR" ]; then
     echo -e "${YELLOW}Updating MaaNTE repository...${NC}"
     cd "$TEMP_DIR"
-    git fetch origin
-    git reset --hard origin/main
+    git fetch origin "$UPSTREAM_BRANCH"
+    git reset --hard "origin/$UPSTREAM_BRANCH"
     echo -e "${GREEN}MaaNTE repository updated successfully${NC}"
     cd "$PROJECT_ROOT"
 else
     echo -e "${YELLOW}Cloning MaaNTE repository...${NC}"
-    git clone https://github.com/1bananachicken/MaaNTE.git "$TEMP_DIR"
+    git clone --branch "$UPSTREAM_BRANCH" https://github.com/1bananachicken/MaaNTE.git "$TEMP_DIR"
     echo -e "${GREEN}MaaNTE repository cloned successfully${NC}"
 fi
 

@@ -20,7 +20,20 @@ interface NavigationComponents {
 
 type SidebarItem = ThemeSidebarItem | string
 
-function getMetaData(dir: string, entry: fs.Dirent): MetaData | null {
+const sidebarOrderOverrides: Record<string, Record<string, number>> = {
+  'zh_cn/develop': {
+    'getting-started': 1,
+    'pipeline-guide': 2,
+    'coding-standards': 3,
+    'custom-action': 4,
+    'scene-manager': 5,
+    'in-scene': 6,
+    'common-buttons': 7,
+    'node-testing': 8,
+  },
+}
+
+function getMetaData(dir: string, entry: fs.Dirent, orderOverride?: number): MetaData | null {
   const currentPath = path.join(dir, entry.name)
   if (!fs.existsSync(currentPath)) {
     return null
@@ -46,7 +59,7 @@ function getMetaData(dir: string, entry: fs.Dirent): MetaData | null {
   const meta = matter(fileContent).data ?? {}
 
   const baseName = path.parse(entry.name).name
-  const order = Number((entry.isDirectory() ? meta?.dir?.order : meta?.order) ?? Number.MAX_SAFE_INTEGER)
+  const order = Number((entry.isDirectory() ? meta?.dir?.order : meta?.order) ?? orderOverride ?? Number.MAX_SAFE_INTEGER)
   const title = String(meta?.title ?? RegExp('# (.+)').exec(fileContent)?.[1] ?? baseName)
   const icon = String(meta?.icon ?? '')
   const index = entry.isDirectory() ? (Boolean(meta?.index) ?? true) : true
@@ -60,7 +73,7 @@ function getMetaData(dir: string, entry: fs.Dirent): MetaData | null {
   }
 }
 
-function getSidebarItems(dir: string): SidebarItem[] {
+function getSidebarItems(dir: string, relativeDir = ''): SidebarItem[] {
   interface WrappedSidebarItem {
     sidebarItem: SidebarItem
     order: number
@@ -71,16 +84,18 @@ function getSidebarItems(dir: string): SidebarItem[] {
   const entries = fs.readdirSync(dir, { withFileTypes: true }).filter((e) => !e.name.startsWith('.'))
 
   const sidebarItemsWithOrder: WrappedSidebarItem[] = []
+  const orderOverrides = sidebarOrderOverrides[relativeDir.replace(/\\/g, '/')] ?? {}
   for (const entry of entries) {
     let sidebarItem: SidebarItem
 
-    const metaData = getMetaData(dir, entry)
+    const metaData = getMetaData(dir, entry, orderOverrides[path.parse(entry.name).name])
     if (!metaData) {
       continue
     }
 
     if (entry.isDirectory()) {
-      const children = getSidebarItems(path.join(dir, entry.name))
+      const childRelativeDir = relativeDir ? `${relativeDir}/${entry.name}` : entry.name
+      const children = getSidebarItems(path.join(dir, entry.name), childRelativeDir)
       sidebarItem = {
         text: metaData.title,
         link: metaData.index ? `${metaData.baseName}/` : undefined,
@@ -138,7 +153,7 @@ export function genNavigationComponents(
       title: metaData.title,
       dir: metaData.baseName,
       linkPrefix: `/${metaData.baseName}/`,
-      sidebar: getSidebarItems(path.join(langDir, entry.name)),
+      sidebar: getSidebarItems(path.join(langDir, entry.name), `${locale.name}/${entry.name}`),
     }
 
     navigationComponentsWithOrder.push({

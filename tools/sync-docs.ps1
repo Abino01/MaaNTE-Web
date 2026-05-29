@@ -21,10 +21,13 @@ function Write-ColorOutput {
 $ProjectRoot = Split-Path -Parent $PSScriptRoot
 $TempDir = Join-Path $ProjectRoot "MaaNTE-temp"
 $DocsDir = Join-Path $ProjectRoot "docs"
+$UpstreamBranch = if ($env:MAANTE_UPSTREAM_DOCS_BRANCH) { $env:MAANTE_UPSTREAM_DOCS_BRANCH } else { "dev" }
 
 Write-ColorOutput "========================================" "Cyan"
 Write-ColorOutput "MaaNTE Docs Sync Script" "Cyan"
 Write-ColorOutput "========================================" "Cyan"
+Write-Host ""
+Write-ColorOutput "Upstream docs branch: $UpstreamBranch" "Gray"
 Write-Host ""
 
 try {
@@ -38,8 +41,8 @@ if (Test-Path $TempDir) {
     Write-ColorOutput "Updating MaaNTE repository..." "Yellow"
     Push-Location $TempDir
     try {
-        git fetch origin
-        git reset --hard origin/main
+        git fetch origin $UpstreamBranch
+        git reset --hard "origin/$UpstreamBranch"
         Write-ColorOutput "MaaNTE repository updated successfully" "Green"
     } catch {
         Write-ColorOutput "Update failed: $_" "Red"
@@ -50,7 +53,7 @@ if (Test-Path $TempDir) {
 } else {
     Write-ColorOutput "Cloning MaaNTE repository..." "Yellow"
     try {
-        git clone https://github.com/1bananachicken/MaaNTE.git $TempDir
+        git clone --branch $UpstreamBranch https://github.com/1bananachicken/MaaNTE.git $TempDir
         Write-ColorOutput "MaaNTE repository cloned successfully" "Green"
     } catch {
         Write-ColorOutput "Clone failed: $_" "Red"
