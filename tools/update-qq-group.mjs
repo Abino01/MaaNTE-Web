@@ -4,7 +4,9 @@ import { fileURLToPath } from 'node:url'
 
 const GROUP_IDS = ['1103323319', '1101147419', '1075143235', '713114598', '1106448578']
 const API_BASE = process.env.QQ_GROUP_INFO_API ?? 'https://uapis.cn/api/v1/social/qq/groupinfo'
-const MEMBER_LIMIT = Number(process.env.QQ_GROUP_MEMBER_LIMIT ?? 2000)
+const DEFAULT_MEMBER_LIMIT = 2000
+const rawMemberLimit = Number(process.env.QQ_GROUP_MEMBER_LIMIT)
+const MEMBER_LIMIT = Number.isFinite(rawMemberLimit) ? rawMemberLimit : DEFAULT_MEMBER_LIMIT
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const outputPath = process.env.QQ_GROUP_OUTPUT
@@ -20,7 +22,7 @@ async function fetchGroup(groupId) {
   })
 
   if (!response.ok) {
-    throw new Error(`HTTP ${response.status}`)
+    throw new Error(`HTTP ${response.status} for group ${groupId}`)
   }
 
   const data = await response.json()
@@ -37,12 +39,10 @@ function normalizeGroup(groupId, data) {
     group_name: toOptionalString(data.group_name),
     avatar_url: toOptionalString(data.avatar_url),
     description: toOptionalString(data.description),
-    tag: toOptionalString(data.tag),
     join_url: toOptionalString(data.join_url),
     last_updated: toOptionalString(data.last_updated),
     member_count: memberCount,
     max_member_count: maxMemberCount,
-    active_member_num: toNumber(data.active_member_num),
   }
 }
 
@@ -76,10 +76,11 @@ const groups = await Promise.all(
 )
 
 groups.sort(compareGroups)
-
-const candidates = groups.filter((group) => {
-  return group.ok && group.join_url && typeof group.member_count === 'number' && group.member_count < MEMBER_LIMIT
+groups.forEach((group) => {
+  group.joinable = isJoinable(group)
 })
+
+const candidates = groups.filter((group) => group.joinable)
 
 const selected = candidates[0] ?? null
 const output = {
@@ -98,4 +99,8 @@ if (selected) {
   console.log(`Selected QQ group ${selected.group_id} with ${selected.member_count} members.`)
 } else {
   console.log(`No QQ group below ${MEMBER_LIMIT} members was found.`)
+}
+
+function isJoinable(group) {
+  return Boolean(group.ok && group.join_url && typeof group.member_count === 'number' && group.member_count < MEMBER_LIMIT)
 }

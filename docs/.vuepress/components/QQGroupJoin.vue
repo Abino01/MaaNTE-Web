@@ -11,6 +11,7 @@ interface QQGroup {
   member_count?: number
   max_member_count?: number
   ok?: boolean
+  joinable?: boolean
   error?: string
 }
 
@@ -71,7 +72,7 @@ function formatCount(value?: number): string {
 }
 
 function isJoinable(group: QQGroup): boolean {
-  return Boolean(group.ok && group.join_url && typeof group.member_count === 'number' && group.member_count < memberLimit.value)
+  return group.joinable === true
 }
 </script>
 
