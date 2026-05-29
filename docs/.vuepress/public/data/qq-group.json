@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-29T13:48:44.853Z",
+  "updated_at": "2026-05-29T13:49:38.906Z",
   "member_limit": 2000,
   "selected_group_id": "1101147419",
   "selected": {
@@ -64,16 +64,10 @@
       "joinable": true
     },
     {
-      "ok": true,
+      "ok": false,
       "group_id": "1106448578",
-      "group_name": "MaaNTE交流群⑤群",
-      "avatar_url": "https://p.qlogo.cn/gh/1106448578/1106448578/640",
-      "description": "在这里，发现更多~",
-      "join_url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=BGc-OUraNFOMQ0oS_36cFe9TwiPSpBFA&authKey=0iccSgg%2FEGQdZcNLi0vzxzqrAtxBzVT3RZfdG028fXmExoDhSVEE5oD13C666cbS&noverify=0&group_code=1106448578",
-      "last_updated": "2026-05-29T21:22:15.52663873+08:00",
-      "member_count": 1944,
-      "max_member_count": 2000,
-      "joinable": true
+      "error": "HTTP 429 for group 1106448578",
+      "joinable": false
     }
   ]
 }
