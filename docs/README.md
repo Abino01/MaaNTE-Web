@@ -39,29 +39,29 @@ config:
   - type: features
     features:
       - title: 自动钓鱼
-        details: 自动循环抛竿、等钩、收杆，支持自动卖鱼和自动购买鱼饵。新版重构支持无限钓鱼，挂机无忧
-        icon: mdi:fish
-      - title: 音频闪避与反击
+        details: 自动帮你钓大鱼，支持自动卖鱼、自动购买鱼饵和无限循环
+        icon: icon-park-outline:fishing
+      - title: 自动闪避与反击
         details: 基于音频识别的实时闪避系统。监听游戏音效，自动触发闪避和反击操作，让战斗更加从容
-        icon: mdi:flash
+        icon: fa7-solid:bolt
+      - title: 实时辅助
+        details: 自动拾取、自动跳过剧情、自动点击传送，减少繁琐操作，让游戏体验更加流畅自然
+        icon: fa7-solid:clock
+      - title: 粉爪大劫案
+        details: 自动刷取「粉爪大劫案」，轻松获取奖励，解放你的双手
+        icon: streamline-plump:pet-paw-solid
+      - title: 奖励领取
+        details: 自动领取每日奖励
+        icon: fa7-solid:gift
+      - title: 自动做咖啡
+        details: 进行「店长特供」玩法，自动制作咖啡，全自动完成都市体力刷取方斯
+        icon: mdi:coffee-maker-check-outline
       - title: 超强音
         details: 自动演奏音游「超强音」，支持自动选曲、连续演奏和帧率调节。轻松获取音游奖励
-        icon: mdi:music-circle
-      - title: 实时辅助
-        details: 自动跳过剧情对话、自动传送，减少繁琐操作，让游戏体验更加流畅自然
-        icon: mdi:fast-forward
-      - title: 自动做咖啡
-        details: 循环执行咖啡制作小游戏——选择关卡、开始营业、等待目标达成、领取奖励，全自动完成
-        icon: mdi:coffee-maker
-      - title: 喷泉打卡
-        details: 自动前往喷泉完成每日打卡，轻松获取每日奖励
-        icon: mdi:fountain
-      - title: 粉爪劫案
-        details: 自动完成粉爪劫案活动任务，解放双手
-        icon: mdi:paw
+        icon: fa7-solid:music
       - title: 更多功能
         details: 自动弹琴、快速拾取、领取奖励、取钱……更多自动化功能持续更新中
-        icon: mdi:dots-horizontal-circle
+        icon: heroicons:ellipsis-horizontal-circle-16-solid
   - type: custom
 ---
 

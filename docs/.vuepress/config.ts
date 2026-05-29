@@ -43,5 +43,9 @@ export default defineUserConfig({
     footer: false,
 
     watermark: false,
+
+    markdown: { 
+      icon: { provider: 'iconify'}
+    }
   }),
 })
