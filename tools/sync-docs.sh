@@ -34,11 +34,13 @@ cd "$PROJECT_ROOT"
 
 TEMP_DIR="$PROJECT_ROOT/MaaNTE-temp"
 DOCS_DIR="$PROJECT_ROOT/docs"
-UPSTREAM_BRANCH="dev"
+UPSTREAM_BRANCH="${MAANTE_UPSTREAM_DOCS_BRANCH:-dev}"
 
 echo -e "${CYAN}========================================${NC}"
 echo -e "${CYAN}MaaNTE Docs Sync Script${NC}"
 echo -e "${CYAN}========================================${NC}"
+echo ""
+echo -e "${GRAY}Upstream docs branch: ${UPSTREAM_BRANCH}${NC}"
 echo ""
 
 if ! command -v git &> /dev/null; then

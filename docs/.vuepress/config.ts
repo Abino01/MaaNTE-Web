@@ -4,6 +4,8 @@ import { plumeTheme } from 'vuepress-theme-plume'
 import { genSiteLocales } from './navigation/genLocales.ts'
 import breadcrumbFix from './plugins/breadcrumb-fix.ts'
 
+const upstreamDocsBranch = process.env.MAANTE_UPSTREAM_DOCS_BRANCH ?? 'dev'
+
 export default defineUserConfig({
   plugins: [breadcrumbFix],
   base: '/',
@@ -26,7 +28,7 @@ export default defineUserConfig({
 
     docsRepo: '1bananachicken/MaaNTE',
     docsDir: '/docs',
-    docsBranch: 'dev',
+    docsBranch: upstreamDocsBranch,
 
     editLink: true,
 

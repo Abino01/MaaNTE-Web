@@ -21,11 +21,13 @@ function Write-ColorOutput {
 $ProjectRoot = Split-Path -Parent $PSScriptRoot
 $TempDir = Join-Path $ProjectRoot "MaaNTE-temp"
 $DocsDir = Join-Path $ProjectRoot "docs"
-$UpstreamBranch = "dev"
+$UpstreamBranch = if ($env:MAANTE_UPSTREAM_DOCS_BRANCH) { $env:MAANTE_UPSTREAM_DOCS_BRANCH } else { "dev" }
 
 Write-ColorOutput "========================================" "Cyan"
 Write-ColorOutput "MaaNTE Docs Sync Script" "Cyan"
 Write-ColorOutput "========================================" "Cyan"
+Write-Host ""
+Write-ColorOutput "Upstream docs branch: $UpstreamBranch" "Gray"
 Write-Host ""
 
 try {
