@@ -28,6 +28,9 @@
   transition: opacity 0.15s, visibility 0s 0.3s;
   margin-left: 0 !important;
   white-space: nowrap;
+  width: 144px;
+  box-sizing: border-box;
+  justify-content: center;
 }
 
 .vp-home-hero .action > .vp-button:nth-child(3) {
