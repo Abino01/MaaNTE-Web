@@ -53,9 +53,9 @@
   transform: translateX(calc(100% + 12px));
 }
 
-/* 悬停下载按钮或任一子按钮时，四个子按钮同时出现 */
-.vp-home-hero .action:has(> .vp-button:nth-child(2):is(:hover, :focus-visible)) > .vp-button:nth-child(n + 3):nth-child(-n + 6),
-.vp-home-hero .action:has(> .vp-button:nth-child(n + 3):nth-child(-n + 6):is(:hover, :focus-visible)) > .vp-button:nth-child(n + 3):nth-child(-n + 6) {
+/* 下载按钮 hover / click（focus）或悬停子按钮时，四个子按钮同时出现 */
+.vp-home-hero .action:has(> .vp-button:nth-child(2):is(:hover, :focus, :focus-visible)) > .vp-button:nth-child(n + 3):nth-child(-n + 6),
+.vp-home-hero .action:has(> .vp-button:nth-child(n + 3):nth-child(-n + 6):is(:hover, :focus, :focus-visible)) > .vp-button:nth-child(n + 3):nth-child(-n + 6) {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
