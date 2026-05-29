@@ -1,13 +1,11 @@
 import { defineClientConfig } from 'vuepress/client'
+import QQGroupJoin from './components/QQGroupJoin.vue'
+import Redirect from './components/Redirect.vue'
 import './styles/custom.css'
 
 export default defineClientConfig({
   enhance({ app }) {
-    import('./components/Redirect.vue').then((module) => {
-      app.component('Redirect', module.default)
-    })
-    import('./components/QQGroupJoin.vue').then((module) => {
-      app.component('QQGroupJoin', module.default)
-    })
+    app.component('Redirect', Redirect)
+    app.component('QQGroupJoin', QQGroupJoin)
   },
 })
