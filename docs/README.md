@@ -3,10 +3,11 @@ home: true
 title: MaaNTE
 config:
   - type: hero
+    full: true
     hero:
       name: MaaNTE
-      text: MAA 异环小助手
-      tagline: 由 MaaFramework 强力驱动的《异环》自动化辅助工具
+      text: 由 MaaFramework 强力驱动的《异环》自动化辅助工具
+      tagline: MAA 异环小助手
       image:
         src: /images/logo_256x256.png
         alt: MaaNTE Logo
@@ -15,11 +16,16 @@ config:
           link: /zh_cn/introduction/
           type: primary
         - text: 下载
-          link: https://github.com/1bananachicken/MaaNTE/releases
           type: primary
+        - text: GitHub 下载
+          link: https://github.com/1bananachicken/MaaNTE/releases
+          type: secondary
+        - text: Mirror酱 下载
+          link: https://mirrorchan.com/zh/projects?rid=MaaNTE
+          type: secondary
         - text: GitHub
           link: https://github.com/1bananachicken/MaaNTE
-          type: secondary
+          type: primary
   - type: features
     features:
       - title: 自动钓鱼

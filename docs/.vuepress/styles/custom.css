@@ -1,0 +1,100 @@
+.hero-tagline {
+  font-size: 2.5rem !important;
+}
+
+/* 将 hero actions 按钮组推至第一屏底部 */
+.vp-home-hero.full .hero-container {
+  flex-direction: column;
+}
+
+.vp-home-hero.full .hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  margin-top: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.vp-home-hero.full .actions {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0;
+}
+
+/* 下载按钮弹出菜单 */
+.vp-home-hero .action {
+  position: relative;
+}
+
+/* 子按钮：在下载按钮上方，横向排列 */
+.vp-home-hero .action > .vp-button:nth-child(3),
+.vp-home-hero .action > .vp-button:nth-child(4) {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s, visibility 0s 0.3s;
+  margin-left: 0 !important;
+  white-space: nowrap;
+}
+
+.vp-home-hero .action > .vp-button:nth-child(3) {
+  left: 50%;
+  transform: translateX(calc(-100% - 4px));
+}
+
+.vp-home-hero .action > .vp-button:nth-child(4) {
+  left: 50%;
+  transform: translateX(4px);
+}
+
+/* 悬停下载按钮或任一子按钮时，两个子按钮同时出现 */
+.vp-home-hero .action:has(> .vp-button:nth-child(2):hover) > .vp-button:nth-child(3),
+.vp-home-hero .action:has(> .vp-button:nth-child(2):hover) > .vp-button:nth-child(4),
+.vp-home-hero .action:has(> .vp-button:nth-child(3):hover) > .vp-button:nth-child(3),
+.vp-home-hero .action:has(> .vp-button:nth-child(3):hover) > .vp-button:nth-child(4),
+.vp-home-hero .action:has(> .vp-button:nth-child(4):hover) > .vp-button:nth-child(3),
+.vp-home-hero .action:has(> .vp-button:nth-child(4):hover) > .vp-button:nth-child(4) {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.15s, visibility 0s 0s;
+}
+
+/*
+ * 延伸区域（纯伪元素）
+ *
+ * nth-child(2) 即 下载
+ *
+ * nth-child(3) 即 GitHub：
+ *   ::before — 向右下延伸，填补子按钮间横向间隙
+ *
+ * nth-child(4) 即 Mirror酱：
+ *   ::before — 向左下延伸
+ */
+
+/* GitHub：向下延伸 + 向右填隙 */
+.vp-home-hero .action > .vp-button:nth-child(3)::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 110%;
+  height: 150%;
+}
+
+/* Mirror酱：向左填隙 + 向下延伸 */
+.vp-home-hero .action > .vp-button:nth-child(4)::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0;
+  width: 110%;
+  height: 150%;
+}
