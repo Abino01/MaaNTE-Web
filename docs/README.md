@@ -30,6 +30,28 @@ config:
         - text: GitHub
           link: https://github.com/1bananachicken/MaaNTE
           type: primary
+  - type: HTMLBlock
+    html: |
+      <section style="width: 100%; max-width: 1152px; margin: 0 auto; padding: 0 0 24px;">
+        <div style="max-width: 1152px; margin: 0 0 10vh; padding: 0; text-align: left; display: flex; flex-wrap: nowrap;flex-direction: column; align-items: flex-start;">
+          <h2 style="font-size: 36px; font-weight: 700; width: fit-content; margin: 0 0 16px; padding: 5px; background: var(--vp-bg-home-hero-name, linear-gradient(315deg, var(--vp-c-purple-1) 15%, var(--vp-c-brand-2) 65%, var(--vp-c-brand-2) 100%));background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">框架先进，稳定无忧</h2>
+          <p style="font-size: 16px; color: var(--vp-c-text-1); margin: 0 0; padding: 0 15px; line-height: 1.7;">
+            MaaNTE 基于 <strong>MaaFramework</strong> 开发，通过图像识别与模拟输入技术实现功能。<br>区别于传统脚本录制，不会出现录制脚本的“意外退出界面导致被花光资源”惨案。
+          </p>
+        </div>
+        <div style="max-width: 1152px; margin: 0 0 10vh; padding: 0; text-align: right; display: flex; flex-wrap: nowrap;flex-direction: column; align-items: flex-end;">
+          <h2 style="font-size: 36px; font-weight: 700; width: fit-content; margin: 0 0 16px; padding: 5px; background: var(--vp-bg-home-hero-name, linear-gradient(315deg, var(--vp-c-purple-1) 15%, var(--vp-c-brand-2) 65%, var(--vp-c-brand-2) 100%));background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">开源工具，代码安全</h2>
+          <p style="font-size: 16px; color: var(--vp-c-text-1); margin: 0 0; padding: 0 15px; line-height: 1.7;">
+            MaaNTE 以 <strong>AGPL-3.0</strong> 开源，源码均在 GitHub 发布。<br>区别于闭源项目的不确定性，我们的每一行代码都经过审查，接受任何人随时监督。
+          </p>
+        </div>
+        <div style="max-width: 1152px; margin: 0 0 10vh; padding: 0; text-align: left; display: flex; flex-wrap: nowrap;flex-direction: column; align-items: flex-start;">
+          <h2 style="font-size: 36px; font-weight: 700; width: fit-content; margin: 0 0 16px; padding: 5px; background: var(--vp-bg-home-hero-name, linear-gradient(315deg, var(--vp-c-purple-1) 15%, var(--vp-c-brand-2) 65%, var(--vp-c-brand-2) 100%));background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">社区驱动，功能丰富</h2>
+          <p style="font-size: 16px; color: var(--vp-c-text-1); margin: 0 0; padding: 0 15px; line-height: 1.7;">
+            <strong>任何人</strong>均能提交代码，为 MaaNTE 添加新的功能。<br>我们拥有数十项已经添加到正式版的功能，覆盖日常任务、都市闲趣等多个方面。
+          </p>
+        </div>
+      </section>
   - type: features
     features:
       - title: 自动钓鱼
