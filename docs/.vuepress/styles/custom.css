@@ -80,7 +80,7 @@
  */
 
 /* GitHub：向下延伸 + 向右填隙 */
-.vp-home-hero .action > .vp-button:nth-child(3):is(:hover, :focus-visible)::before {
+.vp-home-hero .action > .vp-button:nth-child(3)::before {
   content: '';
   position: absolute;
   top: 0px;
@@ -90,7 +90,7 @@
 }
 
 /* Mirror酱：向左填隙 + 向下延伸 */
-.vp-home-hero .action > .vp-button:nth-child(4):is(:hover, :focus-visible)::before {
+.vp-home-hero .action > .vp-button:nth-child(4)::before {
   content: '';
   position: absolute;
   top: 0px;
