@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
   pages: write
   id-token: write
 
@@ -62,18 +63,16 @@ jobs:
       - name: Update QQ group link
         run: pnpm run qq-group:update
 
-      - name: Commit QQ group data
-        run: |
-          if git diff --quiet -- docs/.vuepress/public/data/qq-group.json; then
-            echo "QQ group data is already up to date."
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/.vuepress/public/data/qq-group.json
-          git commit -m "Update QQ group data [skip ci]"
-          git push
+      - name: Create QQ group data pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          add-paths: docs/.vuepress/public/data/qq-group.json
+          branch: bot/update-qq-group-data
+          commit-message: Update QQ group data
+          title: Update QQ group data
+          body: |
+            Automated update for the generated QQ group data used by GitHub Pages.
+          labels: automation
 
       - name: Build with VuePress
         run: pnpm run docs:build
