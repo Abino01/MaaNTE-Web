@@ -26,7 +26,7 @@ export default defineUserConfig({
 
     docsRepo: '1bananachicken/MaaNTE',
     docsDir: '/docs',
-    docsBranch: 'main',
+    docsBranch: 'dev',
 
     editLink: true,
 
