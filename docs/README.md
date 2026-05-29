@@ -16,6 +16,7 @@ config:
           link: /zh_cn/introduction/
           type: primary
         - text: 下载
+          link: "javascript:void(0)"
           type: primary
         - text: GitHub 下载
           link: https://github.com/1bananachicken/MaaNTE/releases

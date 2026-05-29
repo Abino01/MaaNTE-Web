@@ -55,12 +55,12 @@
 }
 
 /* 悬停下载按钮或任一子按钮时，两个子按钮同时出现 */
-.vp-home-hero .action:has(> .vp-button:nth-child(2):hover) > .vp-button:nth-child(3),
-.vp-home-hero .action:has(> .vp-button:nth-child(2):hover) > .vp-button:nth-child(4),
-.vp-home-hero .action:has(> .vp-button:nth-child(3):hover) > .vp-button:nth-child(3),
-.vp-home-hero .action:has(> .vp-button:nth-child(3):hover) > .vp-button:nth-child(4),
-.vp-home-hero .action:has(> .vp-button:nth-child(4):hover) > .vp-button:nth-child(3),
-.vp-home-hero .action:has(> .vp-button:nth-child(4):hover) > .vp-button:nth-child(4) {
+.vp-home-hero .action:has(> .vp-button:nth-child(2):is(:hover, :focus-visible)) > .vp-button:nth-child(3),
+.vp-home-hero .action:has(> .vp-button:nth-child(2):is(:hover, :focus-visible)) > .vp-button:nth-child(4),
+.vp-home-hero .action:has(> .vp-button:nth-child(3):is(:hover, :focus-visible)) > .vp-button:nth-child(3),
+.vp-home-hero .action:has(> .vp-button:nth-child(3):is(:hover, :focus-visible)) > .vp-button:nth-child(4),
+.vp-home-hero .action:has(> .vp-button:nth-child(4):is(:hover, :focus-visible)) > .vp-button:nth-child(3),
+.vp-home-hero .action:has(> .vp-button:nth-child(4):is(:hover, :focus-visible)) > .vp-button:nth-child(4) {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -80,7 +80,7 @@
  */
 
 /* GitHub：向下延伸 + 向右填隙 */
-.vp-home-hero .action > .vp-button:nth-child(3)::before {
+.vp-home-hero .action > .vp-button:nth-child(3):is(:hover, :focus-visible)::before {
   content: '';
   position: absolute;
   top: 0px;
@@ -90,7 +90,7 @@
 }
 
 /* Mirror酱：向左填隙 + 向下延伸 */
-.vp-home-hero .action > .vp-button:nth-child(4)::before {
+.vp-home-hero .action > .vp-button:nth-child(4):is(:hover, :focus-visible)::before {
   content: '';
   position: absolute;
   top: 0px;
