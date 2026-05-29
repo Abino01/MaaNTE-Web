@@ -20,14 +20,14 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  MAANTE_UPSTREAM_DOCS_BRANCH: dev
+  MAANTE_UPSTREAM_DOCS_BRANCH: ${{ vars.MAANTE_UPSTREAM_DOCS_BRANCH || 'dev' }}
 
 jobs:
   build:
     if: >
       github.event_name != 'repository_dispatch' ||
       github.event.client_payload.source_branch == '' ||
-      github.event.client_payload.source_branch == env.MAANTE_UPSTREAM_DOCS_BRANCH
+      github.event.client_payload.source_branch == (vars.MAANTE_UPSTREAM_DOCS_BRANCH || 'dev')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
