@@ -36,11 +36,11 @@ jobs:
 
       - name: Sync docs from MaaNTE
         run: |
-          cp MaaNTE-temp/docs/README.md docs/README.md || true
           rsync -av --delete \
             --exclude='/README.md' \
             --exclude='/introduction/README.md' \
             --exclude='/develop/README.md' \
+            --exclude='/qq-group/' \
             MaaNTE-temp/docs/zh_cn/ docs/zh_cn/
 
       - name: Setup pnpm
