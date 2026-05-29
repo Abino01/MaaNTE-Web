@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
+  schedule: [{cron: "10 * * * *"}]
   repository_dispatch:
     types: [md_changes]
-  schedule: [{cron: "10 * * * *"}]
   workflow_dispatch:
   push:
     branches:
