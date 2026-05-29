@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
+import { withBase } from 'vuepress/client'
 
 interface QQGroup {
   group_id: string
   group_name?: string
-  avatar_url?: string
-  description?: string
   join_url?: string
-  last_updated?: string
   member_count?: number
   max_member_count?: number
   ok?: boolean
@@ -18,7 +16,7 @@ interface QQGroup {
 interface QQGroupData {
   updated_at?: string
   member_limit?: number
-  selected?: QQGroup | null
+  selected_group_id?: string | null
   groups?: QQGroup[]
 }
 
@@ -26,18 +24,21 @@ const loading = ref(true)
 const errorMessage = ref('')
 const groupData = ref<QQGroupData | null>(null)
 
-const selectedGroup = computed(() => groupData.value?.selected ?? null)
 const groups = computed(() => groupData.value?.groups ?? [])
+const selectedGroup = computed(() => {
+  const selectedGroupId = groupData.value?.selected_group_id
+  return groups.value.find((group) => group.group_id === selectedGroupId) ?? null
+})
 const memberLimit = computed(() => groupData.value?.member_limit ?? 2000)
 
 const updatedAt = computed(() => {
-  const value = groupData.value?.updated_at ?? selectedGroup.value?.last_updated
+  const value = groupData.value?.updated_at
   return value ? formatDate(value) : '等待首次更新'
 })
 
 onMounted(async () => {
   try {
-    const response = await fetch(`/data/qq-group.json?t=${Date.now()}`, {
+    const response = await fetch(withBase(`/data/qq-group.json?t=${Date.now()}`), {
       cache: 'no-store',
       headers: { accept: 'application/json' },
     })
@@ -74,6 +75,10 @@ function formatCount(value?: number): string {
 function isJoinable(group: QQGroup): boolean {
   return group.joinable === true
 }
+
+function formatGroupName(group: QQGroup): string {
+  return group.group_name || `QQ群 ${group.group_id}`
+}
 </script>
 
 <template>
@@ -89,18 +94,8 @@ function isJoinable(group: QQGroup): boolean {
     </div>
 
     <div v-else class="qq-group__content">
-      <img
-        v-if="selectedGroup.avatar_url"
-        class="qq-group__avatar"
-        :src="selectedGroup.avatar_url"
-        :alt="selectedGroup.group_name || `QQ群 ${selectedGroup.group_id}`"
-        width="88"
-        height="88"
-      />
       <div class="qq-group__main">
-        <p class="qq-group__eyebrow">当前推荐</p>
-        <h2>{{ selectedGroup.group_name || `QQ群 ${selectedGroup.group_id}` }}</h2>
-        <p v-if="selectedGroup.description" class="qq-group__description">{{ selectedGroup.description }}</p>
+        <h2>{{ formatGroupName(selectedGroup) }}</h2>
 
         <dl class="qq-group__stats">
           <div>
@@ -128,7 +123,10 @@ function isJoinable(group: QQGroup): boolean {
       <summary>查看全部群状态</summary>
       <ul>
         <li v-for="group in groups" :key="group.group_id">
-          <span>{{ group.group_name || `QQ群 ${group.group_id}` }}</span>
+          <span>
+            {{ formatGroupName(group) }}
+            <small>QQ群 {{ group.group_id }}</small>
+          </span>
           <strong v-if="isJoinable(group)">{{ formatCount(group.member_count) }} 人</strong>
           <em v-else>{{ group.error || '已满或不可加入' }}</em>
         </li>
@@ -164,14 +162,6 @@ function isJoinable(group: QQGroup): boolean {
   align-items: flex-start;
 }
 
-.qq-group__avatar {
-  flex: 0 0 auto;
-  width: 88px;
-  height: 88px;
-  border-radius: 8px;
-  border: 1px solid var(--vp-c-border);
-}
-
 .qq-group__main {
   min-width: 0;
 }
@@ -183,7 +173,6 @@ function isJoinable(group: QQGroup): boolean {
   font-weight: 700;
 }
 
-.qq-group__description,
 .qq-group__hint,
 .qq-group__meta {
   color: var(--vp-c-text-2);
@@ -261,6 +250,13 @@ function isJoinable(group: QQGroup): boolean {
   overflow-wrap: anywhere;
 }
 
+.qq-group__details small {
+  display: block;
+  margin-top: 2px;
+  color: var(--vp-c-text-3);
+  font-size: 0.85em;
+}
+
 .qq-group__details strong {
   color: var(--vp-c-brand-1);
   white-space: nowrap;
@@ -279,10 +275,6 @@ function isJoinable(group: QQGroup): boolean {
 
   .qq-group__content {
     display: block;
-  }
-
-  .qq-group__avatar {
-    margin-bottom: 16px;
   }
 
   .qq-group__stats {

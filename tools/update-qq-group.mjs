@@ -7,6 +7,8 @@ const API_BASE = process.env.QQ_GROUP_INFO_API ?? 'https://uapis.cn/api/v1/socia
 const DEFAULT_MEMBER_LIMIT = 2000
 const rawMemberLimit = Number(process.env.QQ_GROUP_MEMBER_LIMIT)
 const MEMBER_LIMIT = Number.isFinite(rawMemberLimit) ? rawMemberLimit : DEFAULT_MEMBER_LIMIT
+const REQUEST_DELAY_MS = 350
+const MAX_RETRY_COUNT = 2
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const outputPath = process.env.QQ_GROUP_OUTPUT
@@ -17,16 +19,24 @@ async function fetchGroup(groupId) {
   const url = new URL(API_BASE)
   url.searchParams.set('group_id', groupId)
 
-  const response = await fetch(url, {
-    headers: { accept: 'application/json' },
-  })
+  for (let retryCount = 0; retryCount <= MAX_RETRY_COUNT; retryCount += 1) {
+    const response = await fetch(url, {
+      headers: { accept: 'application/json' },
+    })
 
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status} for group ${groupId}`)
+    if (response.ok) {
+      const data = await response.json()
+      return normalizeGroup(groupId, data)
+    }
+
+    if (response.status !== 429 || retryCount === MAX_RETRY_COUNT) {
+      throw new Error(`HTTP ${response.status} for group ${groupId}`)
+    }
+
+    await sleep(REQUEST_DELAY_MS * (retryCount + 2))
   }
 
-  const data = await response.json()
-  return normalizeGroup(groupId, data)
+  throw new Error(`Failed to fetch group ${groupId}`)
 }
 
 function normalizeGroup(groupId, data) {
@@ -37,10 +47,7 @@ function normalizeGroup(groupId, data) {
     ok: true,
     group_id: String(data.group_id ?? groupId),
     group_name: toOptionalString(data.group_name),
-    avatar_url: toOptionalString(data.avatar_url),
-    description: toOptionalString(data.description),
     join_url: toOptionalString(data.join_url),
-    last_updated: toOptionalString(data.last_updated),
     member_count: memberCount,
     max_member_count: maxMemberCount,
   }
@@ -61,19 +68,21 @@ function compareGroups(left, right) {
   return leftCount - rightCount || String(left.group_id).localeCompare(String(right.group_id))
 }
 
-const groups = await Promise.all(
-  GROUP_IDS.map(async (groupId) => {
-    try {
-      return await fetchGroup(groupId)
-    } catch (error) {
-      return {
-        ok: false,
-        group_id: groupId,
-        error: error instanceof Error ? error.message : 'Unknown error',
-      }
-    }
-  }),
-)
+const groups = []
+
+for (const groupId of GROUP_IDS) {
+  try {
+    groups.push(await fetchGroup(groupId))
+  } catch (error) {
+    groups.push({
+      ok: false,
+      group_id: groupId,
+      error: error instanceof Error ? error.message : 'Unknown error',
+    })
+  }
+
+  await sleep(REQUEST_DELAY_MS)
+}
 
 groups.sort(compareGroups)
 groups.forEach((group) => {
@@ -87,7 +96,6 @@ const output = {
   updated_at: new Date().toISOString(),
   member_limit: MEMBER_LIMIT,
   selected_group_id: selected?.group_id ?? null,
-  selected,
   groups,
 }
 
@@ -103,4 +111,8 @@ if (selected) {
 
 function isJoinable(group) {
   return Boolean(group.ok && group.join_url && typeof group.member_count === 'number' && group.member_count < MEMBER_LIMIT)
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
