@@ -17,6 +17,9 @@ config:
         - text: 下载
           link: https://github.com/1bananachicken/MaaNTE/releases
           type: primary
+        - text: 加入 QQ 群
+          link: /zh_cn/qq-group/
+          type: secondary
         - text: GitHub
           link: https://github.com/1bananachicken/MaaNTE
           type: secondary
