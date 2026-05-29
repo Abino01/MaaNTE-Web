@@ -15,12 +15,13 @@
   position: relative;
 }
 
-/* 子按钮：在下载按钮上方，2x2 排列 */
+/* 子按钮：在下载按钮上方，横向排列 */
 .vp-home-hero .action > .vp-button:nth-child(3),
 .vp-home-hero .action > .vp-button:nth-child(4),
 .vp-home-hero .action > .vp-button:nth-child(5),
 .vp-home-hero .action > .vp-button:nth-child(6) {
   position: absolute;
+  bottom: calc(100% + 8px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -31,26 +32,22 @@
 
 .vp-home-hero .action > .vp-button:nth-child(3) {
   left: 50%;
-  bottom: calc(200% + 16px);
-  transform: translateX(calc(-100% - 4px));
+  transform: translateX(calc(-200% - 12px));
 }
 
 .vp-home-hero .action > .vp-button:nth-child(4) {
   left: 50%;
-  bottom: calc(200% + 16px);
-  transform: translateX(4px);
+  transform: translateX(calc(-100% - 4px));
 }
 
 .vp-home-hero .action > .vp-button:nth-child(5) {
   left: 50%;
-  bottom: calc(100% + 8px);
-  transform: translateX(calc(-100% - 4px));
+  transform: translateX(4px);
 }
 
 .vp-home-hero .action > .vp-button:nth-child(6) {
   left: 50%;
-  bottom: calc(100% + 8px);
-  transform: translateX(4px);
+  transform: translateX(calc(100% + 12px));
 }
 
 /* 悬停下载按钮或任一子按钮时，四个子按钮同时出现 */
