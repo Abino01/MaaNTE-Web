@@ -28,7 +28,7 @@ config:
           link: https://pan.baidu.com/s/11QMC-aYfjfq52yco_UAwfg?pwd=tkmu
           type: secondary
         - text: 夸克网盘
-          link: https://pan.quark.cn/s/9eb393a6c95e?pwd=8nuf
+          link: https://pan.quark.cn/s/b690fe93838b?pwd=PtXy
           type: secondary
         - text: 加入 QQ 群
           link: /zh_cn/qq-group/
