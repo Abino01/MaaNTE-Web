@@ -9,7 +9,7 @@ export default defineThemeConfig({
 
   social: [
     { icon: 'bilibili', link: 'https://space.bilibili.com/3546893080594665' },
-    { icon: 'discord', link: 'https://discord.gg/EjwrrGzy' },
+    { icon: 'discord', link: 'https://discord.com/invite/e6mPMRYQpR' },
     { icon: 'github', link: 'https://github.com/1bananachicken/MaaNTE' },
   ],
   navbarSocialInclude: ['bilibili', 'discord', 'github'],
