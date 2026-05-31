@@ -4,9 +4,15 @@ import { useData } from 'vuepress/client'
 
 interface TopAlertConfig {
   enabled?: boolean
+  label?: string
   text?: string
   link?: string
   speed?: number
+  backgroundColor?: string
+  textColor?: string
+  borderColor?: string
+  badgeBackgroundColor?: string
+  badgeTextColor?: string
 }
 
 const { frontmatter } = useData()
@@ -30,9 +36,20 @@ const enabled = computed(() => {
 
 const text = computed(() => topAlert.value?.text?.trim() ?? '')
 const link = computed(() => topAlert.value?.link?.trim() ?? '')
+const label = computed(() => topAlert.value?.label?.trim() || '警告')
 const duration = computed(() => {
   const speed = Number(topAlert.value?.speed)
   return Number.isFinite(speed) && speed > 0 ? `${speed}s` : '26s'
+})
+const barStyle = computed(() => {
+  const cfg = topAlert.value
+  return {
+    '--home-alert-bg': cfg?.backgroundColor?.trim() || '#7f1d1d',
+    '--home-alert-text': cfg?.textColor?.trim() || '#fff7ed',
+    '--home-alert-border': cfg?.borderColor?.trim() || 'rgba(255, 255, 255, 0.22)',
+    '--home-alert-badge-bg': cfg?.badgeBackgroundColor?.trim() || '#fef08a',
+    '--home-alert-badge-text': cfg?.badgeTextColor?.trim() || '#7f1d1d',
+  }
 })
 
 const linkTarget = computed(() => (link.value.startsWith('/') ? '_self' : '_blank'))
@@ -47,6 +64,7 @@ watchEffect(() => {
   <section
     v-if="enabled"
     class="home-alert-bar"
+    :style="barStyle"
     role="status"
     aria-live="polite"
     aria-label="站点通知"
@@ -61,11 +79,11 @@ watchEffect(() => {
             :target="linkTarget"
             :rel="linkTarget === '_blank' ? 'noopener noreferrer' : undefined"
           >
-            <span class="home-alert-bar__label">警告</span>
+            <span class="home-alert-bar__label">{{ label }}</span>
             <span class="home-alert-bar__text">{{ text }}</span>
           </a>
           <span v-else class="home-alert-bar__content">
-            <span class="home-alert-bar__label">警告</span>
+            <span class="home-alert-bar__label">{{ label }}</span>
             <span class="home-alert-bar__text">{{ text }}</span>
           </span>
         </template>
@@ -82,8 +100,8 @@ watchEffect(() => {
   width: 100%;
   height: 36px;
   overflow: hidden;
-  background: #7f1d1d;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  background: var(--home-alert-bg);
+  border-bottom: 1px solid var(--home-alert-border);
 }
 
 .home-alert-bar__inner {
@@ -109,7 +127,7 @@ watchEffect(() => {
   align-items: center;
   min-width: 100%;
   padding: 0 24px;
-  color: #fff7ed;
+  color: var(--home-alert-text);
   font-size: 14px;
   line-height: 1;
   text-decoration: none;
@@ -120,9 +138,9 @@ watchEffect(() => {
   font-size: 12px;
   font-weight: 700;
   line-height: 1;
-  color: #7f1d1d;
+  color: var(--home-alert-badge-text);
   letter-spacing: 0.4px;
-  background: #fef08a;
+  background: var(--home-alert-badge-bg);
   border-radius: 999px;
 }
 

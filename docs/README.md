@@ -3,9 +3,15 @@ home: true
 title: MaaNTE
 topAlert:
   enabled: true
+  label: 提醒
   text: 请仅从官方渠道下载 MaaNTE。谨防第三方改包、引流群和付费代下骗局。
   link: https://github.com/1bananachicken/MaaNTE/releases
   speed: 28
+  backgroundColor: "#7f1d1d"
+  textColor: "#fff7ed"
+  borderColor: "rgba(255, 255, 255, 0.22)"
+  badgeBackgroundColor: "#fef08a"
+  badgeTextColor: "#7f1d1d"
 config:
   - type: hero
     full: true
