@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-31T18:08:28.120Z",
+  "updated_at": "2026-05-31T18:12:11.583Z",
   "member_limit": 2000,
   "selected_group_id": "423431800",
   "groups": [
@@ -7,7 +7,7 @@
       "ok": true,
       "group_id": "423431800",
       "group_name": "MaaNTE交流群6群",
-      "member_count": 118,
+      "member_count": 121,
       "max_member_count": 2000,
       "joinable": true
     },
@@ -15,7 +15,7 @@
       "ok": true,
       "group_id": "1075143235",
       "group_name": "MaaNTE交流群3群",
-      "member_count": 1958,
+      "member_count": 1957,
       "max_member_count": 2000,
       "joinable": true
     },
@@ -23,7 +23,7 @@
       "ok": true,
       "group_id": "1106448578",
       "group_name": "MaaNTE交流群5群",
-      "member_count": 1996,
+      "member_count": 1995,
       "max_member_count": 2000,
       "joinable": true
     },
@@ -31,9 +31,9 @@
       "ok": true,
       "group_id": "1101147419",
       "group_name": "MaaNTE交流群2群",
-      "member_count": 1999,
+      "member_count": 2000,
       "max_member_count": 2000,
-      "joinable": true
+      "joinable": false
     },
     {
       "ok": true,
