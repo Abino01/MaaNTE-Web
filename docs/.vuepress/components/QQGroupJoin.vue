@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { withBase } from 'vuepress/client'
 
 interface QQGroup {
@@ -25,6 +25,12 @@ const groupData = ref<QQGroupData | null>(null)
 const copiedGroupId = ref('')
 const copyErrorGroupId = ref('')
 let resetCopyFeedbackTimer: ReturnType<typeof setTimeout> | undefined
+
+onBeforeUnmount(() => {
+  clearCopyFeedbackTimer()
+  copiedGroupId.value = ''
+  copyErrorGroupId.value = ''
+})
 
 const groups = computed(() => groupData.value?.groups ?? [])
 const selectedGroup = computed(() => {
@@ -92,11 +98,19 @@ async function copyGroupId(groupId: string): Promise<void> {
     copyErrorGroupId.value = groupId
   }
 
-  clearTimeout(resetCopyFeedbackTimer)
+  clearCopyFeedbackTimer()
   resetCopyFeedbackTimer = setTimeout(() => {
     copiedGroupId.value = ''
     copyErrorGroupId.value = ''
+    resetCopyFeedbackTimer = undefined
   }, 2000)
+}
+
+function clearCopyFeedbackTimer(): void {
+  if (resetCopyFeedbackTimer === undefined) return
+
+  clearTimeout(resetCopyFeedbackTimer)
+  resetCopyFeedbackTimer = undefined
 }
 
 async function copyText(value: string): Promise<void> {
@@ -113,6 +127,10 @@ async function copyText(value: string): Promise<void> {
 }
 
 function copyTextWithFallback(value: string): void {
+  if (typeof document.execCommand !== 'function') {
+    throw new Error('Clipboard API is not supported')
+  }
+
   const textarea = document.createElement('textarea')
   textarea.value = value
   textarea.style.position = 'fixed'
