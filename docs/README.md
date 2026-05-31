@@ -4,7 +4,7 @@ title: MaaNTE
 topAlert:
   enabled: true
   label: 提醒
-  text: 请仅从官方渠道下载 MaaNTE。谨防第三方改包、引流群和付费代下骗局。
+  text: 请仅从官方渠道下载 MaaNTE。谨防第三方改包、引流群和付费代下骗局。现在已知假库为：yapeth/MaaNTE
   link: https://github.com/1bananachicken/MaaNTE/releases
   speed: 28
   backgroundColor: "#7f1d1d"
