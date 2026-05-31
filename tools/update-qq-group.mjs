@@ -47,7 +47,6 @@ function normalizeGroup(groupId, data) {
     ok: true,
     group_id: String(data.group_id ?? groupId),
     group_name: toOptionalString(data.group_name),
-    join_url: toOptionalString(data.join_url),
     member_count: memberCount,
     max_member_count: maxMemberCount,
   }
@@ -110,7 +109,7 @@ if (selected) {
 }
 
 function isJoinable(group) {
-  return Boolean(group.ok && group.join_url && typeof group.member_count === 'number' && group.member_count < MEMBER_LIMIT)
+  return Boolean(group.ok && typeof group.member_count === 'number' && group.member_count < MEMBER_LIMIT)
 }
 
 function sleep(ms) {

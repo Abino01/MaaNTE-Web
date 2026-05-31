@@ -66,7 +66,7 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Update QQ group link
+      - name: Update QQ group data
         run: pnpm run qq-group:update
 
       - name: Commit QQ group data
