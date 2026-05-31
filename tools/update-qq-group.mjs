@@ -2,7 +2,7 @@ import { mkdir, rename, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const GROUP_IDS = ['1103323319', '1101147419', '1075143235', '713114598', '1106448578']
+const GROUP_IDS = ['1103323319', '1101147419', '1075143235', '713114598', '1106448578', '423431800']
 const API_BASE = process.env.QQ_GROUP_INFO_API ?? 'https://uapis.cn/api/v1/social/qq/groupinfo'
 const DEFAULT_MEMBER_LIMIT = 2000
 const rawMemberLimit = Number(process.env.QQ_GROUP_MEMBER_LIMIT)
