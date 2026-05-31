@@ -11,3 +11,4 @@ docs/zh_cn/introduction/*.md
 !docs/zh_cn/introduction/README.md
 docs/zh_cn/develop/*.md
 !docs/zh_cn/develop/README.md
+!docs/zh_cn/develop/dmca-abuse-template.md
