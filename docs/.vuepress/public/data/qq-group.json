@@ -1,8 +1,17 @@
 {
-  "updated_at": "2026-05-31T09:37:41.819Z",
+  "updated_at": "2026-05-31T09:43:28.573Z",
   "member_limit": 2000,
-  "selected_group_id": "1075143235",
+  "selected_group_id": "423431800",
   "groups": [
+    {
+      "ok": true,
+      "group_id": "423431800",
+      "group_name": "MaaNTE交流群6群",
+      "join_url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=agHLSTJb6iRE9o8XgiVe5Jc_5wJvumo2&authKey=y3kp6nnhtdhb572tF2jAAQ66Y%2FcqJRRlhfe32akzqumuSEn5DBBeT0F4aB%2FCvBUf&noverify=0&group_code=423431800",
+      "member_count": 11,
+      "max_member_count": 2000,
+      "joinable": true
+    },
     {
       "ok": true,
       "group_id": "1075143235",
