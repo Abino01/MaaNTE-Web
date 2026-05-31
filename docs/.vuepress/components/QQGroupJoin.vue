@@ -80,8 +80,22 @@ function formatCount(value?: number): string {
   return typeof value === 'number' && Number.isFinite(value) ? value.toLocaleString('zh-CN') : '未知'
 }
 
-function isJoinable(group: QQGroup): boolean {
-  return group.joinable === true
+function hasMemberCount(group: QQGroup): boolean {
+  return typeof group.member_count === 'number' && Number.isFinite(group.member_count)
+}
+
+function formatGroupMemberCount(group: QQGroup): string {
+  if (!hasMemberCount(group)) return '未知'
+
+  const maxMemberCount = group.max_member_count ?? memberLimit.value
+  return `${group.member_count}/${maxMemberCount}`
+}
+
+function hasFewRemainingSlots(group: QQGroup): boolean {
+  if (!hasMemberCount(group)) return false
+
+  const maxMemberCount = group.max_member_count ?? memberLimit.value
+  return maxMemberCount - group.member_count! < 50
 }
 
 function formatGroupName(group: QQGroup): string {
@@ -196,10 +210,15 @@ function copyButtonLabel(groupId: string): string {
         <li v-for="group in groups" :key="group.group_id">
           <span>
             {{ formatGroupName(group) }}
-            <small>QQ群 {{ group.group_id }}</small>
+            <small>{{ group.group_id }}</small>
           </span>
           <span class="qq-group__details-actions">
-            <strong v-if="isJoinable(group)">{{ formatCount(group.member_count) }} 人</strong>
+            <strong
+              v-if="hasMemberCount(group)"
+              :class="{ 'qq-group__details-count--warning': hasFewRemainingSlots(group) }"
+            >
+              {{ formatGroupMemberCount(group) }}
+            </strong>
             <em v-else>{{ group.error || '已满或不可加入' }}</em>
             <button type="button" @click="copyGroupId(group.group_id)">
               {{ copyButtonLabel(group.group_id) }}
@@ -339,6 +358,10 @@ function copyButtonLabel(groupId: string): string {
 .qq-group__details strong {
   color: var(--vp-c-brand-1);
   white-space: nowrap;
+}
+
+.qq-group__details-count--warning {
+  color: var(--vp-c-danger-1) !important;
 }
 
 .qq-group__details em {

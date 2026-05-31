@@ -68,6 +68,8 @@ jobs:
 
       - name: Update QQ group data
         run: pnpm run qq-group:update
+        env:
+          QQ_GROUP_INFO_CKEY: ${{ secrets.QQ_GROUP_INFO_CKEY }}
 
       - name: Commit QQ group data
         run: |

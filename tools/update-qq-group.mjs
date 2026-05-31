@@ -3,7 +3,22 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const GROUP_IDS = ['1103323319', '1101147419', '1075143235', '713114598', '1106448578', '423431800']
-const API_BASE = process.env.QQ_GROUP_INFO_API ?? 'https://uapis.cn/api/v1/social/qq/groupinfo'
+const API_SOURCES = [
+  {
+    name: 'primary API',
+    baseUrl: process.env.QQ_GROUP_INFO_API ?? 'https://www.tmini.net/api/group?type=',
+    queryParam: 'qq',
+    ckey: process.env.QQ_GROUP_INFO_CKEY ?? '',
+    headers: { 'content-type': 'application/none' },
+    unwrap: unwrapPrimaryResponse,
+  },
+  {
+    name: 'fallback API',
+    baseUrl: process.env.QQ_GROUP_INFO_FALLBACK_API ?? 'https://uapis.cn/api/v1/social/qq/groupinfo',
+    queryParam: 'group_id',
+    unwrap: (data) => data,
+  },
+]
 const DEFAULT_MEMBER_LIMIT = 2000
 const rawMemberLimit = Number(process.env.QQ_GROUP_MEMBER_LIMIT)
 const MEMBER_LIMIT = Number.isFinite(rawMemberLimit) ? rawMemberLimit : DEFAULT_MEMBER_LIMIT
@@ -16,32 +31,61 @@ const outputPath = process.env.QQ_GROUP_OUTPUT
   : path.resolve(__dirname, '../docs/.vuepress/public/data/qq-group.json')
 
 async function fetchGroup(groupId) {
-  const url = new URL(API_BASE)
-  url.searchParams.set('group_id', groupId)
+  const errors = []
+
+  for (const source of API_SOURCES) {
+    try {
+      return await fetchGroupFromSource(groupId, source)
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error'
+      errors.push(`${source.name}: ${message}`)
+    }
+  }
+
+  throw new Error(`Failed to fetch group ${groupId} (${errors.join('; ')})`)
+}
+
+async function fetchGroupFromSource(groupId, source) {
+  const url = new URL(source.baseUrl)
+  url.searchParams.set(source.queryParam, groupId)
+  if ('ckey' in source) {
+    url.searchParams.set('ckey', source.ckey)
+  }
 
   for (let retryCount = 0; retryCount <= MAX_RETRY_COUNT; retryCount += 1) {
     const response = await fetch(url, {
-      headers: { accept: 'application/json' },
+      headers: { accept: 'application/json', ...source.headers },
     })
 
     if (response.ok) {
-      const data = await response.json()
-      return normalizeGroup(groupId, data)
+      return normalizeGroup(groupId, source.unwrap(await response.json()))
     }
 
     if (response.status !== 429 || retryCount === MAX_RETRY_COUNT) {
-      throw new Error(`HTTP ${response.status} for group ${groupId}`)
+      throw new Error(`HTTP ${response.status}`)
     }
 
     await sleep(REQUEST_DELAY_MS * (retryCount + 2))
   }
 
-  throw new Error(`Failed to fetch group ${groupId}`)
+  throw new Error('Request retries exhausted')
+}
+
+function unwrapPrimaryResponse(response) {
+  if (response?.code !== 200 || !response.data) {
+    throw new Error(`API error: ${response?.msg ?? 'invalid response'}`)
+  }
+
+  return response.data
 }
 
 function normalizeGroup(groupId, data) {
   const memberCount = toNumber(data.member_count)
   const maxMemberCount = toNumber(data.max_member_count)
+
+  if (memberCount === undefined) {
+    throw new Error('Invalid response: missing member_count')
+  }
 
   return {
     ok: true,
