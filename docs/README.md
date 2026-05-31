@@ -112,7 +112,7 @@ config:
   <LinkCard icon="fa7-brands:github" title="GitHub" href="https://github.com/1bananachicken/MaaNTE/" />
   <LinkCard icon="fa7-brands:bilibili" title="Bilibili" href="https://space.bilibili.com/3546893080594665/" />
   <LinkCard icon="fa7-brands:qq" title="QQ" href="/zh_cn/qq-group/" />
-  <LinkCard icon="fa7-brands:discord" title="Discord" href="https://discord.gg/EjwrrGzy/" />
+  <LinkCard icon="fa7-brands:discord" title="Discord" href="https://discord.com/invite/e6mPMRYQpR" />
 </CardGrid>
 
 <div style="text-align: center; padding: 24px 0 48px; color: var(--vp-c-text-2); font-size: 14px;">
