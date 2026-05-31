@@ -1,6 +1,11 @@
 ---
 home: true
 title: MaaNTE
+topAlert:
+  enabled: true
+  text: 请仅从官方渠道下载 MaaNTE。谨防第三方改包、引流群和付费代下骗局。
+  link: https://github.com/1bananachicken/MaaNTE/releases
+  speed: 28
 config:
   - type: hero
     full: true
