@@ -5,7 +5,6 @@ topAlert:
   enabled: true
   label: 提醒
   text: 请仅从官方渠道下载 MaaNTE。谨防第三方改包、引流群、假仓库和付费代下骗局。
-  link: javascript:void(0)
   speed: 28
   backgroundColor: "#7f1d1d"
   textColor: "#fff7ed"
