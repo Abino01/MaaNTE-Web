@@ -1,7 +1,8 @@
 name: Deploy to GitHub Pages
 
 on:
-  schedule: [{cron: "45 * * * *"}]
+  schedule:
+    - cron: "45 * * * *"
   repository_dispatch:
     types: [md_changes]
   workflow_dispatch:
@@ -10,7 +11,7 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -70,19 +71,6 @@ jobs:
         run: pnpm run qq-group:update
         env:
           QQ_GROUP_INFO_CKEY: ${{ secrets.QQ_GROUP_INFO_CKEY }}
-
-      - name: Commit QQ group data
-        run: |
-          if git diff --quiet -- docs/.vuepress/public/data/qq-group.json; then
-            echo "QQ group data is already up to date."
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/.vuepress/public/data/qq-group.json
-          git commit -m "Update QQ group data [skip ci]"
-          git push origin HEAD:main
 
       - name: Build with VuePress
         run: pnpm run docs:build
