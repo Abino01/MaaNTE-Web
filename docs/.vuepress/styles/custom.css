@@ -2,6 +2,51 @@
   font-size: 2.5rem !important;
 }
 
+.vp-nav {
+  position: relative !important;
+  top: 0 !important;
+}
+
+.vp-nav.fixed {
+  position: relative !important;
+}
+
+.vp-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.vp-content.has-sidebar {
+  margin-top: 0 !important;
+}
+
+@media (min-width: 960px) {
+  .vp-content {
+    padding-top: 0 !important;
+  }
+
+  .vp-content.has-sidebar {
+    margin-top: 0 !important;
+    padding-left: var(--vp-sidebar-width);
+  }
+
+  .vp-sidebar {
+    top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .vp-local-nav {
+    top: 0 !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .vp-content.has-sidebar {
+    padding-right: calc((100vw - var(--vp-layout-max-width)) / 2);
+    padding-left: calc((100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width));
+  }
+}
+
 .vp-home-hero.full .hero-content {
   padding-top: 10vh;
 }
