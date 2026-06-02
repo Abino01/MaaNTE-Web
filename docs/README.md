@@ -1,4 +1,3 @@
-<img width="760" height="280" alt="image" src="https://github.com/user-attachments/assets/2a434645-d2e6-4d13-bb5c-4b56457c1e0b" />---
 home: true
 title: MaaNTE
 topAlert:
