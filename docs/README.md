@@ -25,7 +25,7 @@ config:
         - text: 快速开始
           link: /zh_cn/introduction/
           type: primary
-        - text: 游戏地图
+        - text: 在线地图
           link: https://map.maante.org/
           type: primary
         - text: 下载
@@ -37,15 +37,24 @@ config:
             - text: Mirror酱 下载
               link: https://mirrorchan.com/zh/projects?rid=MaaNTE
               type: secondary
-            - text: 百度网盘
-              link: https://pan.baidu.com/s/11QMC-aYfjfq52yco_UAwfg?pwd=tkmu
+            - text: 网盘下载
               type: secondary
-            - text: 夸克网盘
-              link: https://pan.quark.cn/s/4b70d06b913c?pwd=irqh
-              type: secondary
-        - text: 加入 QQ 群
-          link: /zh_cn/qq-group/
+              children:
+              - text: 百度网盘
+                link: https://pan.baidu.com/s/11QMC-aYfjfq52yco_UAwfg?pwd=tkmu
+                type: secondary
+              - text: 夸克网盘
+                link: https://pan.quark.cn/s/4b70d06b913c?pwd=irqh
+                type: secondary
+        - text: 联系我们
           type: primary
+          children:
+            - text: QQ 群
+              link: /zh_cn/qq-group/
+              type: secondary
+            - text: Discord
+              link: https://discord.com/invite/e6mPMRYQpR
+              type: secondary
         - text: GitHub
           link: https://github.com/1bananachicken/MaaNTE
           type: primary
