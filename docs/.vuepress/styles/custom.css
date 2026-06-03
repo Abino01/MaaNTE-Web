@@ -47,84 +47,10 @@
   }
 }
 
-.vp-home-hero.full .hero-content {
+.hhero.full .hero-content {
   padding-top: 10vh;
 }
 
-.vp-home-hero.full .actions {
+.hhero .actions {
   margin-top: 10vh;
-}
-
-/* 下载按钮弹出菜单 */
-.vp-home-hero .action {
-  position: relative;
-}
-
-/* 子按钮：在下载按钮上方，横向排列 */
-.vp-home-hero .action > .vp-button:nth-child(3),
-.vp-home-hero .action > .vp-button:nth-child(4),
-.vp-home-hero .action > .vp-button:nth-child(5),
-.vp-home-hero .action > .vp-button:nth-child(6) {
-  position: absolute;
-  bottom: calc(100% + 8px);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.15s, visibility 0s 0.3s;
-  margin-left: 0 !important;
-  white-space: nowrap;
-  width: 144px;
-  box-sizing: border-box;
-  justify-content: center;
-}
-
-.vp-home-hero .action > .vp-button:nth-child(3) {
-  left: 50%;
-  transform: translateX(calc(-200% - 12px));
-}
-
-.vp-home-hero .action > .vp-button:nth-child(4) {
-  left: 50%;
-  transform: translateX(calc(-100% - 4px));
-}
-
-.vp-home-hero .action > .vp-button:nth-child(5) {
-  left: 50%;
-  transform: translateX(4px);
-}
-
-.vp-home-hero .action > .vp-button:nth-child(6) {
-  left: 50%;
-  transform: translateX(calc(100% + 12px));
-}
-
-/* 下载按钮 hover / click（focus）或悬停子按钮时，四个子按钮同时出现 */
-.vp-home-hero .action:has(> .vp-button:nth-child(2):is(:hover, :focus, :focus-visible)) > .vp-button:nth-child(n + 3):nth-child(-n + 6),
-.vp-home-hero .action:has(> .vp-button:nth-child(n + 3):nth-child(-n + 6):is(:hover, :focus, :focus-visible)) > .vp-button:nth-child(n + 3):nth-child(-n + 6) {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition: opacity 0.15s, visibility 0s 0s;
-}
-
-/*
- * 延伸区域（纯伪元素）
- *
- * nth-child(2) 即 下载
- *
- * nth-child(3) 到 nth-child(6) 为下载子按钮：
- *   ::before — 扩大悬停区域，填补按钮间隙
- */
-
-/* 下载子按钮：向下延伸并填补间隙 */
-.vp-home-hero .action > .vp-button:nth-child(3)::before,
-.vp-home-hero .action > .vp-button:nth-child(4)::before,
-.vp-home-hero .action > .vp-button:nth-child(5)::before,
-.vp-home-hero .action > .vp-button:nth-child(6)::before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  left: 0;
-  width: 110%;
-  height: 150%;
 }

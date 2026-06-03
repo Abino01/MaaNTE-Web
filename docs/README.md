@@ -12,7 +12,7 @@ topAlert:
   badgeBackgroundColor: "#fef08a"
   badgeTextColor: "#7f1d1d"
 config:
-  - type: hero
+  - type: HHero
     full: true
     hero:
       name: MaaNTE
@@ -26,20 +26,20 @@ config:
           link: /zh_cn/introduction/
           type: primary
         - text: 下载
-          link: "javascript:void(0)"
           type: primary
-        - text: GitHub 下载
-          link: https://github.com/1bananachicken/MaaNTE/releases
-          type: secondary
-        - text: Mirror酱 下载
-          link: https://mirrorchan.com/zh/projects?rid=MaaNTE
-          type: secondary
-        - text: 百度网盘
-          link: https://pan.baidu.com/s/11QMC-aYfjfq52yco_UAwfg?pwd=tkmu
-          type: secondary
-        - text: 夸克网盘
-          link: https://pan.quark.cn/s/4b70d06b913c?pwd=irqh
-          type: secondary
+          children:
+            - text: GitHub 下载
+              link: https://github.com/1bananachicken/MaaNTE/releases
+              type: secondary
+            - text: Mirror酱 下载
+              link: https://mirrorchan.com/zh/projects?rid=MaaNTE
+              type: secondary
+            - text: 百度网盘
+              link: https://pan.baidu.com/s/11QMC-aYfjfq52yco_UAwfg?pwd=tkmu
+              type: secondary
+            - text: 夸克网盘
+              link: https://pan.quark.cn/s/4b70d06b913c?pwd=irqh
+              type: secondary
         - text: 加入 QQ 群
           link: /zh_cn/qq-group/
           type: primary
