@@ -23,12 +23,15 @@ config:
         alt: MaaNTE Logo
       actions:
         - text: 快速开始
+          icon: mdi:file-document-outline
           link: /zh_cn/introduction/
           type: primary
         - text: 在线地图
+          icon: fa7-solid:map-location-dot
           link: https://map.maante.org/
           type: primary
         - text: 下载
+          icon: fa7-solid:download
           type: primary
           children:
             - text: GitHub 下载
@@ -47,6 +50,7 @@ config:
                 link: https://pan.quark.cn/s/4b70d06b913c?pwd=irqh
                 type: secondary
         - text: 联系我们
+          icon: fa7-solid:external-link-alt
           type: primary
           children:
             - text: QQ 群
@@ -55,9 +59,15 @@ config:
             - text: Discord
               link: https://discord.com/invite/e6mPMRYQpR
               type: secondary
-        - text: GitHub
-          link: https://github.com/1bananachicken/MaaNTE
-          type: primary
+        - text: 更多
+          icon: heroicons:ellipsis-horizontal-circle-16-solid
+          children:
+            - text: GitHub
+              link: https://github.com/1bananachicken/MaaNTE
+              type: primary
+            - text: Bilibili
+              link: https://space.bilibili.com/3546893080594665/
+              type: primary
   - type: HomeIntro
     items:
       - title: 框架先进，稳定无忧
