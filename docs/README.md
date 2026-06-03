@@ -103,8 +103,3 @@ config:
   <LinkCard icon="fa7-brands:qq" title="QQ" href="/zh_cn/qq-group/" />
   <LinkCard icon="fa7-brands:discord" title="Discord" href="https://discord.gg/EjwrrGzy/" />
 </CardGrid>
-
-<div style="text-align: center; padding: 24px 0 48px; color: var(--vp-c-text-2); font-size: 14px;">
-  MaaNTE 为开源项目，以 AGPL-3.0 协议发布。<br/>
-  本软件与《异环》开发商及发行商无关。
-</div>

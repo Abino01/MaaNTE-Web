@@ -14,7 +14,10 @@ export default defineThemeConfig({
   ],
   navbarSocialInclude: ['bilibili', 'discord', 'github'],
 
-  footer: false,
+  footer: {
+    message: '本软件与《异环》开发商及发行商无关。',
+    copyright: 'MaaNTE 为开源项目，以 <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL-3.0</a> 协议发布。',
+  },
 
   locales: genThemeLocales(),
 })

@@ -40,7 +40,6 @@ export default defineUserConfig({
       title: false,
     },
 
-    footer: false,
 
     watermark: false,
 
