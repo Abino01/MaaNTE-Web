@@ -49,6 +49,9 @@ config:
               - text: 夸克网盘
                 link: https://pan.quark.cn/s/4b70d06b913c?pwd=irqh
                 type: secondary
+            - text: QQ 群下载
+              link: /zh_cn/qq-group/
+              type: secondary
         - text: 联系我们
           icon: fa7-solid:external-link-alt
           type: primary
