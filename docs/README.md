@@ -68,6 +68,9 @@ config:
             - text: Bilibili
               link: https://space.bilibili.com/3546893080594665/
               type: primary
+            - text: YouTube
+              link: https://youtube.com/@MaaNTE-Official
+              type: primary
   - type: HomeIntro
     items:
       - title: 框架先进，稳定无忧
