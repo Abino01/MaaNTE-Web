@@ -6,6 +6,12 @@ import { genNavigationComponents } from './genNavigationComponents.ts'
 
 export function genSiteLocales(): SiteLocaleConfig {
   const siteLocales: SiteLocaleConfig = {}
+  // 为根路径 / 添加默认中文 locale，确保首页也能显示语言切换按钮
+  siteLocales['/'] = {
+    lang: 'zh-CN',
+    title: 'MaaNTE 文档站',
+    description: 'MaaNTE | MAA 异环小助手 — 由 MaaFramework 强力驱动的《异环》自动化辅助工具',
+  }
   for (const locale of locales) {
     siteLocales[`/${locale.name}/`] = {
       lang: locale.htmlLang,
@@ -40,6 +46,10 @@ export function genThemeLocales(): LocaleConfig<ThemeLocaleData> {
       collections: navigationComponents.collections,
       footer: footer[locale.name],
     }
+  }
+  // 为根路径 / 添加中文 locale，使首页导航栏能显示语言切换按钮
+  themeLocales['/'] = {
+    ...themeLocales['/zh_cn/'],
   }
   return themeLocales
 }

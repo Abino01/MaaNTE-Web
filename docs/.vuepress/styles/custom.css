@@ -9,3 +9,21 @@
 .hhero .actions {
   margin-top: 10vh;
 }
+
+/* 语言切换和外观切换按钮在 1024px+ 时直接显示（原为 1280px+） */
+/* 避免在中等屏宽下被收入 "..." 菜单中导致不可见 */
+@media (min-width: 1024px) {
+  .vp-navbar-translations {
+    display: flex !important;
+    align-items: center;
+  }
+
+  .vp-navbar-appearance {
+    display: flex !important;
+    align-items: center;
+  }
+
+  .vp-navbar-extra {
+    display: none !important;
+  }
+}
