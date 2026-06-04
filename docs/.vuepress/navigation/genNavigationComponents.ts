@@ -166,7 +166,7 @@ export function genNavigationComponents(
   navigationComponentsWithOrder.sort((a, b) => a.order - b.order)
 
   return {
-    navbar: navigationComponentsWithOrder.map((i) => i.navItem),
+    navbar: navigationComponentsWithOrder.map((i) => i.navItem).filter((i: any) => !i.link?.endsWith('/qq-group/')),
     collections: navigationComponentsWithOrder.map((i) => i.collectionItem),
   }
 }
