@@ -37,30 +37,18 @@ config:
             - text: GitHub ダウンロード
               link: https://github.com/1bananachicken/MaaNTE/releases
               type: secondary
-            - text: Mirror酱 ダウンロード
+            - text: Mirror Chan ダウンロード
               link: https://mirrorchan.com/zh/projects?rid=MaaNTE
-              type: secondary
-            - text: クラウドドライブ
-              type: secondary
-              children:
-              - text: Baidu 網盤
-                link: https://pan.baidu.com/s/11QMC-aYfjfq52yco_UAwfg?pwd=tkmu
-                type: secondary
-              - text: Quark 網盤
-                link: https://pan.quark.cn/s/4b70d06b913c?pwd=irqh
-                type: secondary
-            - text: QQ グループ
-              link: /ja_jp/qq-group/
               type: secondary
         - text: お問い合わせ
           icon: fa7-solid:external-link-alt
           type: primary
           children:
-            - text: QQ グループ
-              link: /ja_jp/qq-group/
-              type: secondary
             - text: Discord
               link: https://discord.com/invite/e6mPMRYQpR
+              type: secondary
+            - text: QQ グループ
+              link: /ja_jp/qq-group/
               type: secondary
         - text: もっと見る
           icon: heroicons:ellipsis-horizontal-circle-16-solid
@@ -68,11 +56,11 @@ config:
             - text: GitHub
               link: https://github.com/1bananachicken/MaaNTE
               type: primary
-            - text: Bilibili
-              link: https://space.bilibili.com/3546893080594665/
-              type: primary
             - text: YouTube
               link: https://youtube.com/@MaaNTE-Official
+              type: primary
+            - text: Bilibili
+              link: https://space.bilibili.com/3546893080594665/
               type: primary
   - type: HomeIntro
     items:

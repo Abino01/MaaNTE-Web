@@ -37,30 +37,18 @@ config:
             - text: GitHub Releases
               link: https://github.com/1bananachicken/MaaNTE/releases
               type: secondary
-            - text: Mirror酱
-              link: https://mirrorchan.com/zh/projects?rid=MaaNTE
-              type: secondary
-            - text: Cloud Drive
-              type: secondary
-              children:
-              - text: Baidu Netdisk
-                link: https://pan.baidu.com/s/11QMC-aYfjfq52yco_UAwfg?pwd=tkmu
-                type: secondary
-              - text: Quark Drive
-                link: https://pan.quark.cn/s/4b70d06b913c?pwd=irqh
-                type: secondary
-            - text: QQ Group
-              link: /en_us/qq-group/
+            - text: Mirror Chan
+              link: https://mirrorchan.com/en/projects?rid=MaaNTE
               type: secondary
         - text: Contact Us
           icon: fa7-solid:external-link-alt
           type: primary
           children:
-            - text: QQ Group
-              link: /en_us/qq-group/
-              type: secondary
             - text: Discord
               link: https://discord.com/invite/e6mPMRYQpR
+              type: secondary
+            - text: QQ Group
+              link: /en_us/qq-group/
               type: secondary
         - text: More
           icon: heroicons:ellipsis-horizontal-circle-16-solid
@@ -68,11 +56,11 @@ config:
             - text: GitHub
               link: https://github.com/1bananachicken/MaaNTE
               type: primary
-            - text: Bilibili
-              link: https://space.bilibili.com/3546893080594665/
-              type: primary
             - text: YouTube
               link: https://youtube.com/@MaaNTE-Official
+              type: primary
+            - text: Bilibili
+              link: https://space.bilibili.com/3546893080594665/
               type: primary
   - type: HomeIntro
     items:
@@ -104,8 +92,8 @@ config:
       - title: Real-Time Assistance
         details: Auto-pickup, auto-skip cutscenes, auto-click teleport — reduces tedious actions for a smoother gameplay experience
         icon: fa7-solid:clock
-      - title: Pink Claw Heist
-        details: Automatically farm the "Pink Claw Heist" event to earn rewards effortlessly and free up your hands
+      - title: Pink Paw Heist
+        details: Automatically farm the "Pink Paw Heist" event to earn rewards effortlessly and free up your hands
         icon: streamline-plump:pet-paw-solid
       - title: Reward Collection
         details: Automatically claim daily rewards
