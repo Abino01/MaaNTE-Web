@@ -124,15 +124,18 @@ const resolvedTheme = computed(() => resolveTheme(props.theme, props.type))
   text-shadow: 0 0 8px rgba(168, 85, 247, 0.20);
 }
 
-/* Sub-buttons: positioned above the parent, centered horizontally */
+/* Sub-buttons: floating above parent, centered, wraps on narrow viewports */
 .hbr-btn-sub {
   position: absolute;
   bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
-  white-space: nowrap;
+  width: max-content;
+  max-width: calc(100vw - 16px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -154,6 +157,15 @@ const resolvedTheme = computed(() => resolveTheme(props.theme, props.type))
   visibility: visible;
   pointer-events: auto;
   transition: opacity 0.15s, visibility 0s 0s;
+}
+
+/* Narrow screens: anchor from left edge to avoid centering overflow */
+@media (max-width: 480px) {
+  .hbr-btn-sub {
+    left: 8px;
+    transform: none;
+    justify-content: flex-start;
+  }
 }
 
 .hbr-btn-sub :deep(.vp-button) {
