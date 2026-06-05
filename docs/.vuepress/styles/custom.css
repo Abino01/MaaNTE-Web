@@ -10,6 +10,22 @@
   margin-top: 10vh;
 }
 
+/* 全局：防止移动端横向溢出 */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* 图片等标签调整 */
+img,
+video,
+iframe,
+table,
+pre,
+code {
+  max-width: 100%;
+}
+
 /* 语言切换和外观切换按钮在 1024px+ 时直接显示（原为 1280px+） */
 /* 避免在中等屏宽下被收入 "..." 菜单中导致不可见 */
 @media (min-width: 1024px) {
