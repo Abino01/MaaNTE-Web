@@ -16,8 +16,8 @@ config:
     full: true
     hero:
       name: MaaNTE
-      text: MaaFramework で駆動する「異環」自動化サポートツール
-      tagline: MAA 異環アシスタント
+      text: Neverness to Everness (NTE) 向け次世代自動化ツール
+      tagline: 面倒な操作を自動化し、ゲーム体験をより快適に。
       image:
         src: /images/logo_256x256.png
         alt: MaaNTE Logo

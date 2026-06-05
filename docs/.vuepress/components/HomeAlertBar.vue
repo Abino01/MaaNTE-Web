@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, watchEffect } from 'vue'
 import { useData } from 'vuepress/client'
+import { useLocale } from '../composables/useLocale.js'
 
 interface TopAlertConfig {
   enabled?: boolean
@@ -15,12 +16,12 @@ interface TopAlertConfig {
   badgeTextColor?: string
 }
 
-const { frontmatter, routeLocale } = useData()
+const { frontmatter } = useData()
+const { currentLocale } = useLocale()
 
 const i18n = computed(() => {
-  const lp = routeLocale.value
-  if (lp.startsWith('/en_us')) return { label: 'Warning', ariaLabel: 'Site Notice' }
-  if (lp.startsWith('/ja_jp')) return { label: '注意', ariaLabel: 'サイト通知' }
+  if (currentLocale.value === 'en') return { label: 'Warning', ariaLabel: 'Site Notice' }
+  if (currentLocale.value === 'ja') return { label: '注意', ariaLabel: 'サイト通知' }
   return { label: '警告', ariaLabel: '站点通知' }
 })
 

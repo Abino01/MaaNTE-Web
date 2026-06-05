@@ -16,7 +16,7 @@ config:
     full: true
     hero:
       name: MaaNTE
-      text: Automation tool for Neverness to Everness powered by MaaFramework
+      text: An automation tool for Neverness to Everness powered by MaaFramework
       tagline: MAA NTE Assistant
       image:
         src: /images/logo_256x256.png
@@ -90,7 +90,7 @@ config:
         details: Real-time dodge system based on audio recognition. Listens for game sound effects and automatically triggers dodge and counter moves for smoother combat
         icon: fa7-solid:bolt
       - title: Real-Time Assistance
-        details: Auto-pickup, auto-skip cutscenes, auto-click teleport — reduces tedious actions for a smoother gameplay experience
+        details: Auto-pickup, auto-skip cutscenes, auto-click teleport — reduce tedious actions for a smoother gameplay experience
         icon: fa7-solid:clock
       - title: Pink Paw Heist
         details: Automatically farm the "Pink Paw Heist" event to earn rewards effortlessly and free up your hands

@@ -1,20 +1,32 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-import { useData, withBase } from 'vuepress/client'
+import { withBase } from 'vuepress/client'
+import { useLocale } from '../composables/useLocale.js'
 
-const { routeLocale } = useData()
+const { currentLocale } = useLocale()
 
-type Locale = 'zh' | 'en' | 'ja'
+interface LocaleStrings {
+  loading: string
+  waitingFirstSync: string
+  unknown: string
+  unknownError: string
+  noGroupsTitle: string
+  noGroupsMsg: (limit: number) => string
+  lastSync: string
+  groupId: string
+  memberCount: string
+  copyGroupId: string
+  copied: string
+  copyFailed: string
+  viewAllGroups: string
+  fullOrUnavailable: string
+  groupName: (id: string) => string
+  dateLocale: string
+  numberLocale: string
+}
 
-const currentLocale = computed<Locale>(() => {
-  const lp = routeLocale.value
-  if (lp.startsWith('/en_us')) return 'en'
-  if (lp.startsWith('/ja_jp')) return 'ja'
-  return 'zh'
-})
-
-const t = computed(() => {
-  const strings: Record<Locale, Record<string, string>> = {
+const t = computed<LocaleStrings>(() => {
+  const strings: Record<import('../composables/useLocale.js').Locale, LocaleStrings> = {
     zh: {
       loading: '正在获取 QQ 群信息...',
       waitingFirstSync: '等待首次更新',
