@@ -44,7 +44,8 @@ export default defineUserConfig({
     watermark: false,
 
     markdown: { 
-      icon: { provider: 'iconify'}
+      icon: { provider: 'iconify'},
+      plot: true
     }
   }),
 })

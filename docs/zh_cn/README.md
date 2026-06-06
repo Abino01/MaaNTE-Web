@@ -24,7 +24,7 @@ config:
       actions:
         - text: 快速开始
           icon: mdi:file-document-outline
-          link: /zh_cn/introduction/
+          link: intro.md
           type: primary
         - text: 在线地图
           icon: fa7-solid:map-location-dot
@@ -101,12 +101,14 @@ config:
       - title: 自动钓鱼
         details: 自动帮你钓大鱼，支持自动卖鱼、自动购买鱼饵和无限循环
         icon: icon-park-outline:fishing
+        link: introduction/HethereauHobbies/Fish.md
       - title: 自动闪避与反击
         details: 基于音频识别的实时闪避系统。监听游戏音效，自动触发闪避和反击操作，让战斗更加从容
         icon: fa7-solid:bolt
       - title: 实时辅助
         details: 自动拾取、自动跳过剧情、自动点击传送，减少繁琐操作，让游戏体验更加流畅自然
         icon: fa7-solid:clock
+        link: introduction/RealTimeAssist/RealTime.md
       - title: 粉爪大劫案
         details: 自动刷取「粉爪大劫案」，轻松获取奖励，解放你的双手
         icon: streamline-plump:pet-paw-solid
@@ -122,6 +124,7 @@ config:
       - title: 更多功能
         details: 自动弹琴、快速拾取、领取奖励、取钱……更多自动化功能持续更新中
         icon: heroicons:ellipsis-horizontal-circle-16-solid
+        link: /zh_cn/introduction/
   - type: HomeIntro
     items:
       - title: 开源驱动，文档完善
