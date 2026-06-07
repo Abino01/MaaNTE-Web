@@ -1,7 +1,7 @@
 ---
 title: 都市大亨
 dir:
-  order: 2
+  order: 3
 index: true
 ---
 
