@@ -45,6 +45,7 @@ export default defineUserConfig({
 
     markdown: { 
       icon: { provider: 'iconify'},
+      collapse: true, // 折叠内容块
       plot: true, // 隐秘文本
       table: { // 表格增强
         align: 'left',
