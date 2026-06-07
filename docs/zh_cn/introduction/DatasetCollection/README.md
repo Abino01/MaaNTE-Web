@@ -13,4 +13,4 @@ index: true
 该功能不会将数据上传到网络，需要您手动将收集的数据发送给我们。
 :::
 
-- [自动驾驶数据集收集](DatasetCollection/AutonomousDrivingDataset)
+- [自动驾驶数据集收集](AutonomousDrivingDataset.md)
