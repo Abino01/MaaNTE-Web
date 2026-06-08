@@ -48,6 +48,7 @@ jobs:
           rsync -av --delete \
             --exclude='/README.md' \
             --exclude='/intro.md' \
+            --exclude='/translation.md' \
             --exclude='/introduction/' \
             --exclude='/introduction/README.md' \
             --exclude='/develop/README.md' \
