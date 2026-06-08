@@ -4,7 +4,7 @@ title: MaaNTE
 topAlert:
   enabled: true
   label: 提醒
-  text: 请仅从官方渠道下载 MaaNTE。谨防第三方改包、引流群、假仓库和付费代下骗局。
+  text: 請僅從官方渠道下載 MaaNTE。謹防第三方改包、引流群、假倉庫與付費代下載騙局。
   speed: 28
   backgroundColor: "#7f1d1d"
   textColor: "#fff7ed"
@@ -16,48 +16,48 @@ config:
     full: true
     hero:
       name: MaaNTE
-      text: 由 MaaFramework 强力驱动的《异环》自动化辅助工具
-      tagline: MAA 异环小助手
+      text: 由 MaaFramework 強力驅動的《異環》自動化輔助工具
+      tagline: MAA 異環小助手
       image:
         src: /images/logo_256x256.png
         alt: MaaNTE Logo
       actions:
-        - text: 快速开始
+        - text: 快速開始
           icon: mdi:file-document-outline
           link: intro.md
           type: primary
-        - text: 在线地图
+        - text: 再線地圖
           icon: fa7-solid:map-location-dot
           link: https://map.maante.org/
           type: primary
-        - text: 下载
+        - text: 下載
           icon: fa7-solid:download
           type: primary
           children:
-            - text: GitHub 下载
+            - text: GitHub 下載
               link: https://github.com/1bananachicken/MaaNTE/releases
               type: secondary
-            - text: Mirror酱 下载
+            - text: Mirror酱 下載
               link: https://mirrorchan.com/zh/projects?rid=MaaNTE
               type: secondary
-            - text: 网盘下载
+            - text: 雲端硬碟下載
               type: secondary
               children:
-              - text: 百度网盘
+              - text: 百度網盤
                 link: https://pan.baidu.com/s/11QMC-aYfjfq52yco_UAwfg?pwd=tkmu
                 type: secondary
-              - text: 夸克网盘
+              - text: 夸克網盤
                 link: https://pan.quark.cn/s/4b70d06b913c?pwd=irqh
                 type: secondary
-            - text: QQ 群下载
-              link: /zh_cn/qq-group/
+            - text: QQ 群下載
+              link: /zh_tw/qq-group/
               type: secondary
-        - text: 联系我们
+        - text: 聯繫我們
           icon: fa7-solid:external-link-alt
           type: primary
           children:
             - text: QQ 群
-              link: /zh_cn/qq-group/
+              link: /zh_tw/qq-group/
               type: secondary
             - text: Discord
               link: https://discord.com/invite/e6mPMRYQpR
@@ -79,61 +79,61 @@ config:
               type: primary
   - type: HomeIntro
     items:
-      - title: 框架先进，稳定无忧
-        content: MaaNTE 基于 <strong>MaaFramework</strong> 开发，通过图像识别与模拟输入技术实现功能。<br>区别于传统脚本录制，不会出现录制脚本的"意外退出界面导致被花光资源"惨案。
+      - title: 框架先進，穩定無憂
+        content: MaaNTE 基於 <strong>MaaFramework</strong> 開發，通過圖像辨識與模擬輸入技術實現功能。<br>相較於傳統的腳本錄製，不會出現在腳本運行時的"意外退出介面導致資源被消耗"的慘案。
         align: left
-      - title: 开源工具，代码安全
-        content: MaaNTE 以 <strong>AGPL-3.0</strong> 开源，源码均在 GitHub 发布。<br>区别于闭源项目的不确定性，我们的每一行代码都经过审查，接受任何人随时监督。
+      - title: 開源工具，代碼安全
+        content: MaaNTE 以 <strong>AGPL-3.0</strong> 開源，源碼均在 GitHub 上發布。<br>相對於閉源項目的不確定性，我們的每一行代碼均經過審查，接受任何人隨時監督。
         align: right
         link:
           href: "https://github.com/1bananachicken/MaaNTE/"
-          text: 我要验码 →
-          alt: 查看源代码
-      - title: 社区驱动，功能丰富
-        content: <strong>任何人</strong>均能提交代码，为 MaaNTE 添加新的功能。<br>我们拥有数十项已经添加到正式版的功能，覆盖日常任务、都市闲趣等多个方面。
+          text: 我要驗碼 →
+          alt: 查看源代碼
+      - title: 社區驅動，功能豐富
+        content: <strong>任何人</strong>均能提交代碼，为 MaaNTE 添加新的功能。<br>我們擁有數十項已經添加至正式版的功能，覆蓋日常任務、都市閒趣等多個方面。
         align: left
         link:
-          href: "/zh_cn/introduction/"
-          text: 让我看看 →
+          href: "/zh_tw/introduction/"
+          text: 讓我看看 →
           alt: 查看功能介绍
   - type: features
     features:
-      - title: 自动钓鱼
-        details: 自动帮你钓大鱼，支持自动卖鱼、自动购买鱼饵和无限循环
+      - title: 自動釣魚
+        details: 自動幫助釣大魚，支援自動賣魚、自動購買魚餌和無限循環
         icon: icon-park-outline:fishing
         link: introduction/HethereauHobbies/Fish.md
-      - title: 自动闪避与反击
-        details: 基于音频识别的实时闪避系统。监听游戏音效，自动触发闪避和反击操作，让战斗更加从容
+      - title: 自動閃避與反應
+        details: 基於音訊辨識的即時閃避系統。監聽遊戲音效，自動觸發閃避和反擊操作，讓戰鬥更從容
         icon: fa7-solid:bolt
-      - title: 实时辅助
-        details: 自动拾取、自动跳过剧情、自动点击传送，减少繁琐操作，让游戏体验更加流畅自然
+      - title: 實時輔助
+        details: 自動拾取、自動跳過劇情、自動點擊傳送，減少繁瑣操作，讓遊戲體驗更流暢自然
         icon: fa7-solid:clock
         link: introduction/RealTimeAssist/RealTime.md
       - title: 粉爪大劫案
-        details: 自动刷取「粉爪大劫案」，轻松获取奖励，解放你的双手
+        details: 自動刷取「粉爪大劫案」，輕鬆獲得獎勵，解放你的雙手
         icon: streamline-plump:pet-paw-solid
-      - title: 奖励领取
-        details: 自动领取每日奖励
+      - title: 獎勵領取
+        details: 自動領取每日獎勵
         icon: fa7-solid:gift
-      - title: 自动做咖啡
-        details: 进行「店长特供」玩法，自动制作咖啡，全自动完成都市体力刷取方斯
+      - title: 自動做咖啡
+        details: 進行「店長特供」玩法，自動製作咖啡，全自動完成都會體力刷取方斯
         icon: mdi:coffee-maker-check-outline
-      - title: 超强音
-        details: 自动演奏音游「超强音」，支持自动选曲、连续演奏和帧率调节。轻松获取音游奖励
+      - title: 超強音
+        details: 自動演奏音遊「超強音」，支援自動選曲、連續演奏和幀率調節。輕鬆獲得音遊獎勵
         icon: fa7-solid:music
       - title: 更多功能
-        details: 自动弹琴、快速拾取、领取奖励、取钱……更多自动化功能持续更新中
+        details: 自動彈琴、快速拾取、領取獎勵、取錢…更多自動化功能持續更新中
         icon: heroicons:ellipsis-horizontal-circle-16-solid
-        link: /zh_cn/introduction/
+        link: /zh_tw/introduction/
   - type: HomeIntro
     items:
-      - title: 开源驱动，文档完善
-        content: MaaNTE 基于 <strong>MaaFramework</strong> 构建，采用 <strong>Pipeline 任务编排 + Python 自定义动作</strong> 的混合架构。<br/>通过 JSON 声明节点流程，支持模板匹配、OCR 文字识别、自定义识别等多种算法。<br/>开发者可以轻松扩展新功能、适配新分辨率。
+      - title: 開源驅動，文件完善
+        content: MaaNTE 基於 <strong>MaaFramework</strong> 構建，採用 <strong>Pipeline 任務編排 + Python 自訂動作</strong> 的混合架構。 <br/>透過 JSON 聲明節點流程，支援範本匹配、OCR 文字辨識、自訂識別等多種演算法。 <br/>開發者可以輕鬆擴展新功能、適配新解析度。
         align: center
         link:
-          href: "/zh_cn/develop/"
-          text: 开发指南 →
-          alt: 开发指南
+          href: "/zh_tw/develop/"
+          text: 開發指南 →
+          alt: 開發指南
   - type: custom
 ---
 <CardGrid>
