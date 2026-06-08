@@ -18,7 +18,7 @@ title: 翻译术语表
 
 - :+ MaaNTE 控制器名称
 
-    | 键 | 简体中文 | 繁体中文 | English | 日本語 |
+    | 键 | 简体中文 | 繁體中文 | English | 日本語 |
     | --- | --- | --- | --- | --- |
     | controller_default_label | 桌面端-默认 | 桌面端-默認 | Win32 - Default | デスクトップ - デフォルト |
     | controller_front_label | 桌面端-前台 | 桌面端-前台 | Win32 - Front | デスクトップ - フォアグラウンド |
@@ -26,7 +26,7 @@ title: 翻译术语表
 
 - :+ MaaNTE 任务分类
 
-    | 键 | 简体中文 | 繁体中文 | English | 日本語 |
+    | 键 | 简体中文 | 繁體中文 | English | 日本語 |
     | --- | --- | --- | --- | --- |
     | group.Daily.label | 日常任务 | 日常任務 | Daily | 日常タスク |
     | group.RealTimeAssist.label | 实时辅助 | 實時輔助 | RealTimeAssist | リアルタイム支援 |
@@ -37,7 +37,7 @@ title: 翻译术语表
 
 - MaaNTE 任务预设
 
-    | 键 | 简体中文 | 繁体中文 | English | 日本語 |
+    | 键 | 简体中文 | 繁體中文 | English | 日本語 |
     | --- | --- | --- | --- | --- |
     | preset.AFK.label | 挂机任务 | 掛機任務 | AFK Tasks | 放置タスク |
     | preset.AFK.description | 适合挂机长时间进行的任务 | 適合掛機長時間進行的任務 | Suitable for long-running AFK tasks | 長時間の放置プレイに適したタスク |
@@ -50,7 +50,7 @@ title: 翻译术语表
 
 - :+ MaaNTE 任务名称
 
-    | 键 | 简体中文 | 繁体中文 | English | 日本語 |
+    | 键 | 简体中文 | 繁體中文 | English | 日本語 |
     | --- | --- | --- | --- | --- |
     | task_claim_rewards_label | 领取奖励 | 領取獎勵 | - | - |
     | task_realtime_label | 实时辅助 | 實時輔助 | - | - |
@@ -71,7 +71,7 @@ title: 翻译术语表
 
 - MaaNTE 任务描述
 
-    | 键 | 简体中文 | 繁体中文 | English | 日本語 |
+    | 键 | 简体中文 | 繁體中文 | English | 日本語 |
     | --- | --- | --- | --- | --- |
     | task_claim_rewards_desc | 自动领取活跃度/环期赏令的奖励。 | - | - | - |
     | task_realtime_desc | 实时辅助小工具 | - | - | - |
@@ -91,7 +91,7 @@ title: 翻译术语表
 
 - MaaNTE 任务详情
 
-    | 键 | 简体中文 | 繁体中文 | English | 日本語 |
+    | 键 | 简体中文 | 繁體中文 | English | 日本語 |
     | --- | --- | --- | --- | --- |
     | task_claim_rewards_option_activity | 领取活跃度奖励 | - | - | - |
     | task_claim_rewards_option_battle_pass | 领取环期赏令奖励 | - | - | - |
