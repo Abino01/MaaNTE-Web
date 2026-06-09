@@ -1,57 +1,57 @@
-# 钓鱼任务
+# 釣魚任務
 
-## 简介
+## 簡介
 
-自动执行钓鱼任务的挂机功能。包含旧版和新版两套任务入口。
+自動執行釣魚任務的掛機功能。包含舊版和新版兩套任務入口。
 
 ## 功能
 
-### 钓鱼任务
+### 釣魚任務
 
-自动循环执行钓鱼：抛竿、等待上钩、收杆，并支持自动卖鱼和自动买鱼饵。
+自動循環執行釣魚：拋竿、等待上鉤、收桿，並支援自動賣魚和自動買魚餌。
 
-### 钓鱼任务（新）
+### 釣魚任務（新）
 
-重构的钓鱼功能，理论上能无限钓鱼。
+重構的釣魚功能，理論上能無限釣魚。
 
 > [!WARNING]
-> 仍无法直接处理被月卡打断的跨夜钓鱼，可以尝试设置定时任务来继续钓鱼，实际效果无法保证。
-> 钓鱼功能仅自动买鱼饵和自动卖鱼会抢占鼠标。
+> 仍無法直接處理被月卡打斷的跨夜釣魚，可以嘗試設定定時任務來繼續釣魚，實際效果無法保證。
+> 釣魚功能只自動買魚餌和自動賣魚會搶佔滑鼠。
 
-## 配置详解
+## 配置詳解
 
-### 循环次数
+### 循環次數
 
-设置钓鱼任务的循环次数。仅在不启用"无限循环"时生效。
+設定釣魚任務的循環次數。僅在不啟用"無限循環"時生效。
 
-**具体实现**：`int` 类型输入框 `FishLoopTime`，通过 `^\d+$` 校验数据。覆写 `FishStart` 的 `max_hit` 参数。
+**具體實作**：`int` 類型輸入框 `FishLoopTime`，透過 `^\d+$` 校驗資料。覆寫 `FishStart` 的 `max_hit` 參數。
 
-### 每次钓鱼数量
+### 每次釣魚數量
 
-设置每次循环自动钓鱼的次数，建议不超过 99。
+設定每次循環自動釣魚的次數，建議不超過 99。
 
-**具体实现**：`int` 类型输入框 `FishNumber`，默认 `99`。覆写 `FishGameStart` 的 `custom_action_param.count` 和 `FishNewCast` 的 `max_hit` 参数。
+**具體實作**：`int` 類型輸入框 `FishNumber`，預設 `99`。覆寫 `FishGameStart` 的 `custom_action_param.count` 和 `FishNewCast` 的 `max_hit` 參數。
 
-### 无限循环
+### 無限循環
 
-启用后钓鱼任务将无限循环，直到手动停止。启用时会忽略"循环次数"设置。
+啟用後釣魚任務將無限循環，直到手動停止。啟用時會忽略"循環次數"設定。
 
-**具体实现**：开关 `FishLoopInfinite`，默认禁用。启用时修改 `FishEntrance`、`FishGameStart`、`AutoSellFish`、`AutoBuyFishBait`、`FishBaitHandled` 的 `next` 指向 `FishLoopStart` 形成循环。
+**具體實作**：開關 `FishLoopInfinite`，預設為停用。啟用時修改 `FishEntrance`、`FishGameStart`、`AutoSellFish`、`AutoBuyFishBait`、`FishBaitHandled` 的 `next` 指向 `FishLoopStart` 形成循環。
 
-### 自动卖鱼
+### 自動賣魚
 
-是否启用自动卖鱼功能。在鱼鳞币不足时自动出售背包中的鱼。
+是否啟用自動賣魚功能。在魚鱗幣不足時自動出售背包中的魚。
 
-**具体实现**：开关 `FishSellAuto`。覆写 `AutoSellFish` 和 `FishNewOpenFishMaster` 的 `enabled` 状态。
+**具體實作**：開關 `FishSellAuto`。覆寫 `AutoSellFish` 和 `FishNewOpenFishMaster` 的 `enabled` 狀態。
 
-### 自动买鱼饵
+### 自動買魚餌
 
-每次自动购买 99 个鱼饵（上限）。识别到鱼饵不足时购买，若当前鱼饵用完则切换为万能鱼饵。
+每次自動購買 99 個魚餌（上限）。辨識到魚餌不足時購買，若當前魚餌用完則切換為萬用魚餌。
 
-**具体实现**：开关 `FishBuyBaitAuto`。覆写 `AutoBuyFishBait`、`FishGotoBuyBait`、`FishNewGotoBuyBait` 的 `enabled` 状态。启用时提供 `FishBaitThreshold` 子选项。
+**具體實作**：開關 `FishBuyBaitAuto`。覆寫 `AutoBuyFishBait`、`FishGotoBuyBait`、`FishNewGotoBuyBait` 的 `enabled` 狀態。啟用時提供 `FishBaitThreshold` 子選項。
 
-### 鱼饵识别阈值
+### 魚餌辨識閾值
 
-如果无法识别点击鱼饵位置，请调低该数值。
+如果無法辨識點擊魚餌位置，請調低該數值。
 
-**具体实现**：下拉选择框 `FishBaitThreshold`，可选值 `0.8`、`0.7`、`0.6`。覆写 `AutoBuyFishBait` 的 `custom_action_param.found_bait_threshold` 参数。
+**具體實作**：下拉選擇框 `FishBaitThreshold`，可選值 `0.8`、`0.7`、`0.6`。覆寫 `AutoBuyFishBait` 的 `custom_action_param.found_bait_threshold` 參數。

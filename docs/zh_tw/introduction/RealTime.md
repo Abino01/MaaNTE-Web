@@ -1,66 +1,66 @@
-# 实时辅助
+# 即時輔助
 
-## 简介
+## 簡介
 
-这是一个**实时辅助**功能，会无限次循环运行。
+這是一個**即時輔助**功能，會無限次循環運行。
 
-需要使用前台控制器。~~（好像是废话）~~
+需要使用前台控制器。 ~~（好像是廢話）~~
 
 ## 功能
 
-### 检测间隔
+### 偵測間隔
 
-每轮检测之间等待的时间，单位为毫秒。一般情况下无需改动。
+每輪偵測之間等待的時間，單位為毫秒。一般情況下無需改動。
 
-### 自动传送
+### 自動傳送
 
-处于地图界面时 ，会在你选中传送点时自动点击“传送”按钮。
+處於地圖介面時 ，會在你選取傳送點時自動點選「傳送」按鈕。
 
-目前支持下列传送点：
+目前支援下列傳送點：
 
-- “维特海默塔”
-- “ReroRero电话亭”
+- “維特海默塔”
+- “ReroRero電話亭”
 
-### 自动跳过剧情
+### 自動跳過劇情
 
-当处于可以跳过的剧情时，自动点击跳过按钮。
+當處於可以跳過的劇情時，自動點擊跳過按鈕。
 
-支持下列功能：
+支援下列功能：
 
-- 自动勾选“今日不再提示”
+- 自動勾選“今日不再提示”
 
-## 配置详解
+## 配置詳解
 
-### 自动剧情
+### 自動劇情
 
-“[自动跳过剧情](#自动跳过剧情)”功能的总开关。关闭时会同时关闭“自动勾选‘今日不再提示’”功能。
+“[自動跳過劇情](#自動跳過劇情)”功能的總開關。關閉時會同時關閉「自動勾選『今日不再提示』」功能。
 
-**具体实现**：开关 `RealTimeAutoSkipStory` ，开启时提供 `RealTimeAutoSkipStoryDialog` 子选项入口，将 `RealTimeSkipStory` 、 `RealTimeSkipStoryDialogConfirm` 覆写为 `"enabled": true` ；关闭时将 `RealTimeSkipStory` 、 `RealTimeSkipStoryDialog` 、 `RealTimeSkipStoryDialogConfirm` 、 `RealTimeSkipStoryDialogCheckbox` 覆写为 `"enabled": false` 。
+**具體實作**：開關 `RealTimeAutoSkipStory` ，開啟時提供 `RealTimeAutoSkipStoryDialog` 子選項入口，將 `RealTimeSkipStory` 、 `RealTimeSkipStoryDialogConfirm` 覆寫為 `"enabled": `Renabled": `Re ； `RealTimeSkipStoryDialog` 、 `RealTimeSkipStoryDialogConfirm` 、 `RealTimeSkipStoryDialogCheckbox` 覆寫為 `"enabled": false` 。
 
-### 自动勾选“今日不再提示”
+### 自動勾選“今日不再提示”
 
-“自动勾选‘今日不再提示’”功能开关。
+「自動勾選『今日不再提示』」功能開關。
 
-### 自动传送
+### 自動傳送
 
-“自动传送”功能的总开关。关闭时会同时关闭所有子传送点的检测。
+“自動傳送”功能的總開關。關閉時會同時關閉所有子傳送點的偵測。
 
-**具体实现**：开关 `RealTimeAutoTeleport` ，开启时提供 `RealTimeAutoTeleportWitte` 和 `RealTimeAutoTeleportPhone` 子选项入口；关闭时将 `RealTimeTeleportWitte` 、 `RealTimeConfirmTeleportWitte` 、 `RealTimeTeleportPhone` 、 `RealTimeConfirmTeleportPhone` 均覆写为 `"enabled": false` 。
+**具體實作**：開關 `RealTimeAutoTeleport` ，開啟時提供 `RealTimeAutoTeleportWitte` 和 `RealTimeAutoTeleportPhone` 子選項入口；關閉時將 `RealTimeTeleportWitte` 、 `RealTimeConfirmTeleportWiRecon`val `Rescon`al、Y均覆寫為 `"enabled": false` 。
 
-#### 维特海默塔
+#### 維特海默塔
 
-单独控制是否检测并自动传送至“维特海默塔”传送点。开启后，软件会识别该传送点详情页并自动点击传送按钮。
+單獨控制是否偵測並自動傳送至「維特海默塔」傳送點。開啟後，軟體會辨識該傳送點詳情頁並自動點選傳送按鈕。
 
-**具体实现**：开关 `RealTimeAutoTeleportWitte` ，将 `RealTimeTeleportWitte` 、 `RealTimeConfirmTeleportWitte` 覆写为 `"enabled": true` ；关闭时将 `RealTimeTeleportWitte` 、 `RealTimeConfirmTeleportWitte` 覆写为 `"enabled": false` 。
+**具體實現**：開關 `RealTimeAutoTeleportWitte` ，將 `RealTimeTeleportWitte` 、 `RealTimeConfirmTeleportWitte` 覆寫為 `"enabled": true` ；關閉時將 `RealTimeTeleportWitte` 、 `RealTimeConfirmTeleportWitte` 覆寫為 `"enabled": false` 。
 
-#### ReroRero电话亭
+#### ReroRero電話亭
 
-单独控制是否检测并自动传送至“ReroRero电话亭”传送点。开启后，软件会识别该传送点详情页并自动点击传送按钮。
+單獨控制是否偵測並自動傳送至「ReroRero電話亭」傳送點。開啟後，軟體會辨識該傳送點詳情頁並自動點選傳送按鈕。
 
-**具体实现**：开关 `RealTimeAutoTeleportPhone` ，将 `RealTimeTeleportPhone` 、 `RealTimeConfirmTeleportPhone` 覆写为 `"enabled": true` ；关闭时将 `RealTimeTeleportPhone` 、 `RealTimeConfirmTeleportPhone` 覆写为 `"enabled": false` 。
+**具體實作**：開關 `RealTimeAutoTeleportPhone` ，將 `RealTimeTeleportPhone` 、 `RealTimeConfirmTeleportPhone` 覆寫為 `"enabled": true` ；關閉時將 `RealTimeTeleportPhone` 、 `RealTime `False `Fal：Telejable `Fal `Fal `Fal3: 寫為 `Tele」(Confirm`F 、 `RealTime `M
 
-### 检测间隔
+### 偵測間隔
 
-每轮检查的循环间隔
+每輪檢查的循環間隔
 
-**具体实现**：`int` 类型输入框 `RealTimeCheckInterval` ，通过 `^\\d+$` 校验数据。覆写 `RealTimeSleep` 的 `post_delay` 参数实现。
+**具體實作**：`int` 類型輸入框 `RealTimeCheckInterval` ，透過 `^\\d+$` 校驗資料。覆寫 `RealTimeSleep` 的 `post_delay` 參數實作。

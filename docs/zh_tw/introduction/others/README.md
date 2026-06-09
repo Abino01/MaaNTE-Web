@@ -1,12 +1,12 @@
 ---
 title: 其它
 dir:
-  order: 5
+ order: 5
 index: true
 ---
 
-不知道分到哪好的功能，包含一些有意思的娱乐性功能。
+不知道分到哪好的功能，包含一些有趣的娛樂功能。
 
-- [自动弹琴](AutoPiano.md)：自动演奏钢琴，支持midi谱面。
-- [抚摸](Touch.md)：一直摸小动物
-- [喷泉打卡](FountainCheckin.md)：去许愿池许个愿吧
+- [自動彈琴](AutoPiano.md)：自動彈奏鋼琴，支援midi譜面。
+- [撫摸](Touch.md)：一直摸小動物
+- [噴泉打卡](FountainCheckin.md)：去許願池許個願吧

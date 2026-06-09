@@ -64,7 +64,7 @@ title: 翻譯術語表
     | task_fish_new_label | 钓鱼任务（新） | 釣魚任務（新） | - | - |
     | task_tetris_label | 泯除方块 | 泯除方塊 | - | - |
     | task_rhythm_label | 超强音 | 超強音 | - | - |
-    | task_auto_piano_label | 自动弹琴 | - | - | - |
+    | task_auto_piano_label | 自动弹琴 | 自動彈琴 | - | - |
     | task_touch_label | 抚摸 | 撫摸 | - | - |
     | task_fountain_label | 喷泉打卡 | 噴泉打卡 | - | - |
     | task_auto_drive_dataset_recorder_label | 自动驾驶数据集收集 | 自動駕駛資料集收集 | - | - |

@@ -1,83 +1,83 @@
 ---
-title: 功能介绍
+title: 功能介紹
 dir:
-  order: 1
+ order: 1
 index: true
 ---
 
-MaaNTE 是面向《异环（Neverness to Everness）》的自动化工具集，专注于减少重复操作、提升日常游玩效率。
+MaaNTE 是《異環（Neverness to Everness）》的自動化工具集，專注於減少重複操作、提升日常遊玩效率。
 
-目前，功能分为下列几类：
+目前，功能分為下列幾類：
 
-## 日常任务
+## 日常任務
 
-| 任务 | 功能 | 描述 |
+| 任務 | 功能 | 說明 |
 | --- | --- | --- |
-| [领取奖励](Daily/ClaimRewards.md) {rowspan=2} | 领取活跃度奖励 | 自动领取日常奖励。 {rowspan=2} |
-| 领取环期赏令奖励 |
-| [家具领取](CityTycoon/Furniture.md) | 领取异象家具奖励 | 依次识别并领取三个已知的家具（仓鼠球、棉棉、破损的木箱） |
-| [领取一咖舍收益](CityTycoon/WithdrawMoney.md) | 领取一咖舍收益 | - |
+| [領取獎勵](Daily/ClaimRewards.md) {rowspan=2} | 領取活躍度獎勵 | 自動領取日常獎勵。 {rowspan=2} |
+| 領取環期賞令獎勵 |
+| [家具領取](CityTycoon/Furniture.md) | 領取異象家具獎勵 | 依序識別並領取三件已知的家具（倉鼠球、棉棉、破損的木箱） |
+| [領取一咖舍收益](CityTycoon/WithdrawMoney.md) | 領取一卡舍收益 | - |
 
-## 实时辅助
+## 即時輔助
 
-| 任务 | 描述 |
+| 任務 | 說明 |
 | --- | --- |
-| [实时辅助](RealTimeAssist/RealTime.md) | 通用的辅助功能，包含自动拾取、跳过剧情、自动传送等功能。 |
-| [音频闪避](RealTimeAssist/SoundDodge.md) | 基于音频的自动闪避与反击 |
-| [快速拾取](RealTimeAssist/AutoFScroll.md) | 持续按住 F 并滚动滚轮，实现快速拾取 |
+| [即時輔助](RealTimeAssist/RealTime.md) | 通用的輔助功能，包含自動拾取、跳過劇情、自動傳送等功能。 |
+| [音訊閃避](RealTimeAssist/SoundDodge.md) | 基於音訊的自動閃避與反擊 |
+| [快速拾取](RealTimeAssist/AutoFScroll.md) | 持續按住 F 並滾動滾輪，實現快速拾取 |
 
 ## 都市大亨
 
-| 玩法 | 任务 | 描述 |
+| 玩法 | 任務 | 說明 |
 | --- | --- | --- |
-| 一咖舍 | [领取一咖舍收益](CityTycoon/WithdrawMoney.md) | 领取一咖舍收益 |
-| 房产 | [家具领取](CityTycoon/Furniture.md) | 领取异象家具奖励 |
+| 一咖舍 | [領一咖舍收益](CityTycoon/WithdrawMoney.md) | 領取一咖舍收益 |
+| 房產 | [家具領取](CityTycoon/Furniture.md) | 領取異象家具獎勵 |
 
-## 都市闲趣
+## 都市閒趣
 
-| 玩法 | 任务 | 描述 |
+| 玩法 | 任務 | 說明 |
 | --- | --- | --- |
 | 同城派送 | - | - |
-| 车辆赛事 | - | - |
-| 店长特供 | [自动做咖啡](HethereauHobbies/MakeCoffee.md) | !!自动锤人!! |
-| 雨燕出行 | - | - |
-| 粉爪大劫案 | [粉爪大劫案](HethereauHobbies/PinkPawHeist.md) | 自动刷取粉爪大劫案 |
-| 海上钓客 {rowspan=2} | [钓鱼任务](HethereauHobbies/Fish.md#task1) | 自动循环执行钓鱼：抛竿、等待上钩、收杆，支持自动卖鱼和自动买鱼饵。 |
-| [钓鱼任务（新）](HethereauHobbies/Fish.md#task2) | 自动循环执行钓鱼，默认情况下会一直循环执行。 |
+| 車輛賽事 | - | - |
+| 店長特供 | [自動做咖啡](HethereauHobbies/MakeCoffee.md) | !!自動錘人!! |
+| 雨燕出遊 | - | - |
+| 粉爪大劫案 | [粉紅爪大劫案](HethereauHobbies/PinkPawHeist.md) | 自動刷取粉爪大劫案 |
+| 海上釣客 {rowspan=2} | [釣魚任務](HethereauHobbies/Fish.md#task1) | 自動循環執行釣魚：拋竿、等待上鉤、收桿，支援自動賣魚和自動買魚餌。 |
+| [釣魚任務（新）](HethereauHobbies/Fish.md#task2) | 自動迴圈執行釣魚，預設會一直循環執行。 |
 | 小小麻雀 | - | - |
-| 泯除方块 | [泯除方块](HethereauHobbies/Tetris.md) | 自动俄罗斯方块 |
-| 超强音 | [超强音](HethereauHobbies/Rhythm.md) | 自动演奏音游，支持选曲与连打 |
+| 泯除方塊 | [泯除方塊](HethereauHobbies/Tetris.md) | 自動俄羅斯方塊 |
+| 超強音 | [超強音](HethereauHobbies/Rhythm.md) | 自動演奏音遊，支援選曲與連打 |
 
 ## 其它功能
 
-| 任务 | 描述 |
+| 任務 | 說明 |
 | --- | --- |
-| [自动弹琴](others/AutoPiano.md) | 自动演奏钢琴，支持midi谱面。 |
-| [抚摸](others/Touch) | 一直摸小动物 |
-| [喷泉打卡](FountainCheckin.md) | 去许愿池许个愿吧 |
+| [自動彈琴](others/AutoPiano.md) | 自動彈奏鋼琴，支援midi譜面。 |
+| [撫摸](others/Touch) | 一直摸小動物 |
+| [噴泉打卡](FountainCheckin.md) | 去許願池許個願吧 |
 
-## 数据收集
+## 資料收集
 
-::: info 声明
-**数据收集**类功能用于收集开发和优化功能的数据，默认情况下不会开启。
+::: info 聲明
+**資料收集**類功能用於收集開發和最佳化功能的數據，預設不會開啟。
 
-该功能不会将数据上传到网络，需要您手动将收集的数据发送给我们。
+該功能不會將資料上傳到網絡，需要您手動將收集的資料傳送給我們。
 :::
 
-| 任务 | 用途 | 收集范围 |
+| 任務 | 用途 | 收集範圍 |
 | --- | --- | --- |
-| [自动驾驶数据集收集](DatasetCollection/AutonomousDrivingDataset) | 自动驾驶功能模型训练 | 游戏画面、操作 |
+| [自動駕駛資料集收集](DatasetCollection/AutonomousDrivingDataset) | 自動駕駛功能模型訓練 | 遊戲畫面、操作 |
 
 ---
 
-## 更多内容
+## 更多內容
 
-详细安装与配置说明请查看上游仓库的 [README](https://github.com/1bananachicken/MaaNTE)。
+詳細安裝與設定說明請查看上游倉庫的 [README](https://github.com/1bananachicken/MaaNTE)。
 
-遇到问题？请参考 [问题排查](/zh_cn/问题排查.html) 和 [常见问题](/zh_cn/develop/faq.html)。
+遇到問題？請參考 [問題排查](/zh_tw/問題排查.html) 和 [常見問題](/zh_tw/develop/faq.html)。
 
-### 为文档贡献内容
+### 為文檔貢獻內容
 
-为 GitHub 上的仓库 [MaaNTE-Web](https://github.com/Maa-NTE/MaaNTE-Web/) 提交 PR 即可。
+提交給 GitHub 上的倉庫 [MaaNTE-Web](https://github.com/Maa-NTE/MaaNTE-Web/) 即可。
 
-相关资料：[术语表](../translation.md)
+相關資料：[術語表](../translation.md)

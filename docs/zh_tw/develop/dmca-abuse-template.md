@@ -1,32 +1,32 @@
-# GitHub DMCA / Abuse 提报模板（AGPL-3.0）
+# GitHub DMCA / Abuse 提報範本（AGPL-3.0）
 
-用于针对仿冒仓库、搬运仓库、带毒二进制仓库进行快速提报。
+用於針對仿冒倉庫、搬運倉庫、帶毒二進位倉庫進行快速提報。
 
-适用对象：
-- 我方为版权方（或版权方授权代表）
-- 原项目采用 AGPL-3.0
-- 对方仓库存在未合规分发、伪装发布、恶意样本风险
+適用對象：
+- 我方為版權方（或版權方授權代表）
+- 原項目採用 AGPL-3.0
+- 對方倉庫存在未合規發放、偽裝發布、惡意樣本風險
 
 ## 官方入口
 
-- DMCA（版权移除）：<https://github.com/contact/dmca>
-- Abuse（滥用/恶意分发）：<https://support.github.com/contact/report-abuse?category=report-abuse&report=other&report_type=unspecified>
+- DMCA（版權移除）：<https://github.com/contact/dmca>
+- Abuse（濫用/惡意散佈）：<https://support.github.com/contact/report-abuse?category=report-abuse&report=other&report_type=unspecified>
 
-建议两条都提：`DMCA` 处理版权，`Abuse` 处理安全风险。
+建議兩條都提：`DMCA` 處理版權，`Abuse` 處理安全風險。
 
-## 提报前准备清单
+## 提報前準備清單
 
-1. 原仓库 URL（官方仓）
-2. 被举报仓库 URL（侵权仓）
-3. 侵权样本下载 URL（Release 链接）
-4. 样本哈希（SHA256）
-5. 检测结论（如 `QVM.Gen.196650`）与检测报告文件
-6. AGPL-3.0 违反点（源码提供、修改说明、许可声明等）
-7. 联系方式（姓名、邮箱、地址、电话）
+1. 原倉庫 URL（官方倉）
+2. 被檢舉倉庫 URL（侵權倉）
+3. 侵權行為範本下載 URL（Release 連結）
+4. 樣本哈希（SHA256）
+5. 檢測結論（如 `QVM.Gen.196650`）與檢測報告文件
+6. AGPL-3.0 違反點（源碼提供、修改說明、許可聲明等）
+7. 聯絡方式（姓名、信箱、地址、電話）
 
-## DMCA 表单逐项模板
+## DMCA 表單逐項模板
 
-以下字段按 GitHub 表单常见问题顺序整理，可直接复制。
+以下欄位依 GitHub 表單常見問題順序整理，可直接複製。
 
 ### Are you the copyright holder or authorized...?
 

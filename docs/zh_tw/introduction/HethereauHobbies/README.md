@@ -1,14 +1,14 @@
 ---
-title: 都市闲趣
+title: 都市閒趣
 dir:
-  order: 4
+ order: 4
 index: true
 ---
 
-“都市闲趣”玩法相关的功能。
+「都市閒趣」玩法相關的功能。
 
-- [自动做咖啡](HethereauHobbies/MakeCoffee.md)
+- [自動做咖啡](HethereauHobbies/MakeCoffee.md)
 - [粉爪大劫案](HethereauHobbies/PinkPawHeist.md)
-- [钓鱼任务](HethereauHobbies/Fish.md)：自动钓鱼
-- [泯除方块](HethereauHobbies/Tetris.md)
-- [超强音](HethereauHobbies/Rhythm.md)
+- [釣魚任務](HethereauHobbies/Fish.md)：自動釣魚
+- [泯除方塊](HethereauHobbies/Tetris.md)
+- [超強音](HethereauHobbies/Rhythm.md)

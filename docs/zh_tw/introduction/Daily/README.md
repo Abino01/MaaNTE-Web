@@ -1,12 +1,12 @@
 ---
-title: 日常任务
+title: 日常任務
 dir:
-  order: 1
+ order: 1
 index: true
 ---
 
-日常任务相关内容。
+日常任務相關內容。
 
-- [领取奖励](ClaimRewards.md)
-- [家具领取](../CityTycoon/Furniture.md)
-- [领取一咖舍收益](../CityTycoon/WithdrawMoney.md)
+- [領取獎勵](ClaimRewards.md)
+- [家具領取](../CityTycoon/Furniture.md)
+- [領取一咖舍收益](../CityTycoon/WithdrawMoney.md)
