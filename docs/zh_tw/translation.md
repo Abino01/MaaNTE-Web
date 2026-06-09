@@ -32,7 +32,7 @@ title: 翻譯術語表
     | group.RealTimeAssist.label | 实时辅助 | 實時輔助 | RealTimeAssist | リアルタイム支援 |
     | group.CityTycoon.label | 都市大亨 | 都市大亨 | CityTycoon | シティ名声 |
     | group.HethereauHobbies.label | 都市闲趣 | 都市閒趣 | HethereauHobbies | シティライフ |
-    | - | 其它功能 | - | others | - |
+    | - | 其它功能 | 其它功能 | others | その他の機能 |
     | group.DatasetCollection.label | 数据收集 | 數據集收集 | DatasetCollection | データセットコレクション |
 
 - MaaNTE 任务预设
@@ -59,7 +59,7 @@ title: 翻譯術語表
     | task_withdraw_money_label | 领取一咖舍收益 | 領取一咖舍收益 | - | - |
     | task_furniture_label | 家具领取 | 家具領取 | - | - |
     | task_make_coffee_label | 自动做咖啡 | 自動做咖啡 | - | - |
-    | - | 粉爪大劫案 | - | - | - |
+    | - | 粉爪大劫案 | 粉爪大劫案 | - | - |
     | task_fish_label | 钓鱼任务 | 釣魚任務 | - | - |
     | task_fish_new_label | 钓鱼任务（新） | 釣魚任務（新） | - | - |
     | task_tetris_label | 泯除方块 | 泯除方塊 | - | - |
@@ -109,7 +109,7 @@ title: 翻譯術語表
     | task.RealTime.option.RealTimeAutoSkipImportantStory.desc | 在弹出重要剧情提示对话框时自动点击"确认"跳过 | - | - | - |
     | task_realtime_option_auto_teleport | 自动传送 | - | - | - |
     | task_realtime_option_auto_teleport_desc | 检测到特定传送点时自动点击传送 | - | - | - |
-    | task_realtime_option_teleport_witte | 维特海默塔 | - | - | - |
+    | task_realtime_option_teleport_witte | 维特海默塔 | 維特海默塔 | Wertheimer Tower | ヴェルテハイモー塔 |
     | task_realtime_option_teleport_witte_desc | 是否检测维特海默塔的传送点 | - | - | - |
     | task_realtime_option_teleport_phone | ReroRero电话亭 | - | - | - |
     | task_realtime_option_teleport_phone_desc | 是否检测ReroRero电话亭的传送点 | - | - | - |
