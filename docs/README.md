@@ -1,5 +1,6 @@
 ---
-title: MaaNTE 文檔站
+title: MaaNTE 文档站
 ---
 
-<Redirect to="/zh_tw/" />
+<Redirect to="/zh-CN/" />
+
