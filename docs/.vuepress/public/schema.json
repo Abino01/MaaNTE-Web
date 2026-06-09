@@ -1,0 +1,68 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MaaNTE",
+  "alternateName": "MAA 异环小助手",
+  "description": "MaaNTE 是一个基于 MaaFramework 开发的《异环》游戏自动化辅助工具。它提供了多种自动化功能，包括日常任务、活动任务、小游戏自动化等，帮助玩家节省重复操作时间。",
+  "url": "https://maante.org",
+  "downloadUrl": "https://github.com/1bananachicken/MaaNTE/releases",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Windows",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "CNY"
+  },
+  "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+  "softwareVersion": "Latest",
+  "author": {
+    "@type": "Organization",
+    "name": "MaaNTE Team",
+    "url": "https://github.com/1bananachicken/MaaNTE"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "MaaNTE Team",
+    "url": "https://maante.org"
+  },
+  "sourceOrganization": {
+    "@type": "Organization",
+    "name": "MaaNTE Team"
+  },
+  "codeRepository": "https://github.com/1bananachicken/MaaNTE",
+  "programmingLanguage": "Rust",
+  "keywords": [
+    "MaaNTE",
+    "MAA",
+    "异环",
+    "Anamnesis",
+    "Hether",
+    "自动化",
+    "游戏辅助",
+    "MaaFramework",
+    "开源",
+    "Rust",
+    "脚本",
+    "游戏工具"
+  ],
+  "featureList": [
+    "日常任务自动化",
+    "赫泽尔爱好（钓鱼、咖啡、俄罗斯方块、音游等）",
+    "城市大亨自动化",
+    "数据集收集",
+    "实时辅助功能",
+    "自动钢琴",
+    "Pipeline 编辑器"
+  ],
+  "softwareRequirements": "Windows 10 or later",
+  "releaseNotes": "查看 GitHub Releases 获取最新更新日志",
+  "screenshot": "https://maante.org/images/logo_256x256.png",
+  "documentation": "https://maante.org/zh_cn/introduction/",
+  "discussionUrl": "https://github.com/1bananachicken/MaaNTE/discussions",
+  "installUrl": "https://github.com/1bananachicken/MaaNTE/releases/latest",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "100"
+  }
+}
