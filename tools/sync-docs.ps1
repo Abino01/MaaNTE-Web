@@ -125,6 +125,9 @@ function Sync-LocaleDocs {
 # zh-CN
 Sync-LocaleDocs -SourceDir (Join-Path $TempDir "docs\zh_cn") -TargetDir (Join-Path $DocsDir "zh_cn") -Label "zh_cn"
 
+# zh-TW
+Sync-LocaleDocs -SourceDir (Join-Path $TempDir "docs\zh_tw") -TargetDir (Join-Path $DocsDir "zh_tw") -Label "zh_tw"
+
 # English (upstream uses "eng", site uses "en_us")
 Sync-LocaleDocs -SourceDir (Join-Path $TempDir "docs\eng") -TargetDir (Join-Path $DocsDir "en_us") -Label "en_us"
 
