@@ -26,7 +26,7 @@ config:
           icon: mdi:file-document-outline
           link: intro.md
           type: primary
-        - text: 再線地圖
+        - text: 在線地圖
           icon: fa7-solid:map-location-dot
           link: https://map.maante.org/
           type: primary
