@@ -102,6 +102,9 @@ sync_locale_docs() {
 # zh-CN
 sync_locale_docs "$TEMP_DIR/docs/zh_cn/" "$DOCS_DIR/zh_cn/" "zh_cn"
 
+# zh-TW
+sync_locale_docs "$TEMP_DIR/docs/zh_tw/" "$DOCS_DIR/zh_tw/" "zh_tw"
+
 # English (upstream uses "eng", site uses "en_us")
 sync_locale_docs "$TEMP_DIR/docs/eng/" "$DOCS_DIR/en_us/" "en_us"
 

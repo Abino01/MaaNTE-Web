@@ -31,6 +31,10 @@ export function genThemeLocales(): LocaleConfig<ThemeLocaleData> {
         copyright: 'MaaNTE 为开源项目，以 <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL-3.0</a> 协议发布。',
         message: '本软件与《异环》开发商及发行商无关。',
       },
+      zh_tw: {
+        copyright: 'MaaNTE 為開源項目，以 <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL-3.0</a> 協議發布。 ',
+        message: '本軟體與《異環》開發商及發行商無關。 ',
+      },
       en_us: {
         copyright: 'MaaNTE is an open source project, released under the <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL-3.0</a> license.',
         message: 'This software is not affiliated with the developers or publishers of Neverness to Everness.',
